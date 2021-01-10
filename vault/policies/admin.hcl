@@ -40,20 +40,20 @@ path "sys/mounts"
   capabilities = ["read", "list"]
 }
 
+# Read health checks
+path "sys/health"
+{
+  capabilities = ["read", "sudo"]
+}
+
 # List, create, update, and delete key/value secrets at secret/
 path "secret/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
-# Manage transit secrets engine
-path "transit/*"
+# Manage PKI
+path "pki/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
-}
-
-# Read health checks
-path "sys/health"
-{
-  capabilities = ["read", "sudo"]
 }
