@@ -3,8 +3,8 @@ resource "vault_mount" "internal_pki" {
   type        = "pki"
   description = "For use inside homelab"
 
-  default_lease_ttl_seconds = 3600
-  max_lease_ttl_seconds     = 86400
+  default_lease_ttl_seconds = "86400"  # 24h
+  max_lease_ttl_seconds     = "604800" # 7d
 }
 
 resource "vault_pki_secret_backend_root_cert" "internal_ca" {
@@ -13,6 +13,7 @@ resource "vault_pki_secret_backend_root_cert" "internal_ca" {
   type                 = "internal"
   common_name          = "Internal Root CA"
   format               = "pem"
+  ttl                  = "315360000" # 10y
   private_key_format   = "der"
   key_type             = "rsa"
   key_bits             = 4096
@@ -31,8 +32,14 @@ resource "vault_pki_secret_backend_role" "consul" {
   backend = vault_mount.internal_pki.path
   name    = "consul"
 
-  max_ttl          = "72h"
+  max_ttl          = "86400"
   allow_subdomains = true
+
+  key_usage = [
+    "DigitalSignature",
+    "KeyAgreement",
+    "KeyEncipherment",
+  ]
 
   allowed_domains = ["service.consul"]
 }
