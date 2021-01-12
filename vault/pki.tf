@@ -11,7 +11,7 @@ resource "vault_pki_secret_backend_root_cert" "internal_ca" {
   backend = vault_mount.internal_pki.path
 
   type                 = "internal"
-  common_name          = "Internal Root CA"
+  common_name          = "Internal CA"
   format               = "pem"
   ttl                  = "315360000" # 10y
   private_key_format   = "der"
@@ -25,7 +25,7 @@ resource "vault_pki_secret_backend_config_urls" "internal_config_urls" {
   backend = vault_mount.internal_pki.path
 
   issuing_certificates    = ["http://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/ca"]
-  crl_distribution_points = ["http://vault.service.consul:8200/v1/{$vault_mount.internal_pki.path}/crl"]
+  crl_distribution_points = ["http://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/crl"]
 }
 
 resource "vault_pki_secret_backend_role" "consul" {
@@ -34,6 +34,8 @@ resource "vault_pki_secret_backend_role" "consul" {
 
   max_ttl          = "86400"
   allow_subdomains = true
+  allow_localhost  = true
+  allow_ip_sans    = true
 
   key_usage = [
     "DigitalSignature",
