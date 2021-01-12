@@ -41,5 +41,7 @@ resource "vault_pki_secret_backend_role" "consul" {
     "KeyEncipherment",
   ]
 
-  allowed_domains = ["service.consul"]
+  allowed_domains = [
+    "consul"
+  ]
 }
