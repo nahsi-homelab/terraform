@@ -32,7 +32,7 @@ resource "vault_pki_secret_backend_role" "consul" {
   backend = vault_mount.internal_pki.path
   name    = "consul"
 
-  max_ttl          = "86400"
+  max_ttl          = "259200" # 3d
   allow_subdomains = true
   allow_localhost  = true
   allow_ip_sans    = true
