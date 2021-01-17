@@ -3,10 +3,10 @@ resource "vault_policy" "admin" {
   policy = file("policies/admin.hcl")
 }
 
-resource "vault_policy" "consul_template" {
-  name = "consul-template"
+resource "vault_policy" "vault_agent" {
+  name = "vault-agent"
   policy = templatefile(
-    "policies/consul-template.hcl",
+    "policies/vault-agent.hcl",
     {
       certs = [
         {
