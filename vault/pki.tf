@@ -3,7 +3,7 @@ resource "vault_mount" "internal_pki" {
   type        = "pki"
   description = "For use inside homelab"
 
-  default_lease_ttl_seconds = "86400"  # 24h
+  default_lease_ttl_seconds = "864000"  # 10d
   max_lease_ttl_seconds     = "315360000" # 10y
 }
 
@@ -24,15 +24,15 @@ resource "vault_pki_secret_backend_root_cert" "internal_ca" {
 resource "vault_pki_secret_backend_config_urls" "internal_config_urls" {
   backend = vault_mount.internal_pki.path
 
-  issuing_certificates    = ["http://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/ca"]
-  crl_distribution_points = ["http://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/crl"]
+  issuing_certificates    = ["https://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/ca"]
+  crl_distribution_points = ["https://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/crl"]
 }
 
 resource "vault_pki_secret_backend_role" "consul" {
   backend = vault_mount.internal_pki.path
   name    = "consul"
 
-  max_ttl          = "259200" # 3d
+  max_ttl          = "864000" # 10d
   allow_subdomains = true
   allow_localhost  = true
   allow_ip_sans    = true
