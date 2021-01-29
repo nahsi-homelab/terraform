@@ -3,7 +3,7 @@ resource "vault_mount" "internal_pki" {
   type        = "pki"
   description = "For use inside homelab"
 
-  default_lease_ttl_seconds = "864000"  # 10d
+  default_lease_ttl_seconds = "864000"    # 10d
   max_lease_ttl_seconds     = "315360000" # 10y
 }
 
