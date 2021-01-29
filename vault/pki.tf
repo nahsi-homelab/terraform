@@ -44,6 +44,7 @@ resource "vault_pki_secret_backend_role" "consul" {
   ]
 
   allowed_domains = [
-    "consul"
+    "consul",
+    "nomad"
   ]
 }
