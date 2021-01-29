@@ -13,3 +13,7 @@ path "auth/token/renew" {
 path "auth/token/renew-self" {
   capabilities = ["update"]
 }
+
+path "/auth/token/roles/nomad" {
+  capabilities = ["update"]
+}
