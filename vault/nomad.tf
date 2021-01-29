@@ -1,6 +1,6 @@
 resource "vault_token_auth_backend_role" "nomad-cluster" {
   role_name              = "nomad-cluster"
-  disallowed_policies    = ["*"]
+  disallowed_policies    = ["admin", "default", "nomad-server"]
   renewable              = true
   token_period           = "259200" # 3d
   orphan                 = true
