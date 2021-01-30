@@ -52,6 +52,12 @@ path "secret/*"
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
+# List, create, update, and delete key/value secrets at secret-v1/
+path "secret-v1/*"
+{
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
 # Manage PKI
 path "pki/*"
 {
