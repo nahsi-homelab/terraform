@@ -1,5 +1,5 @@
 resource "github_repository" "overlay" {
-  name = "nahsi-overlay"
+  name        = "nahsi-overlay"
   description = "Personal ebuild collection"
 
   has_issues   = false
