@@ -8,3 +8,13 @@ resource "github_repository" "overlay" {
 
   delete_branch_on_merge = true
 }
+
+resource "github_repository" "pass" {
+  name = "password-store"
+
+  visibility = "private"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+}
