@@ -1,4 +1,3 @@
 provider "github" {
-  owner        = "nahsi"
-  organization = "nahsi-homelab"
+  owner        = "nahsi-homelab"
 }
