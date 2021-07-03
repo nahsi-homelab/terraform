@@ -18,16 +18,6 @@ resource "github_repository" "nomad" {
   delete_branch_on_merge = true
 }
 
-resource "github_repository" "observability" {
-  name = "observability"
-
-  has_issues   = false
-  has_projects = false
-  has_wiki     = false
-
-  delete_branch_on_merge = true
-}
-
 resource "github_repository" "ansible" {
   name        = "ansible"
   description = "Homelabbing with Ansible"
