@@ -9,6 +9,21 @@ resource "github_repository" "overlay" {
   delete_branch_on_merge = true
 }
 
+resource "github_repository" "dotfiles" {
+  name = "dotfiles"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+
+  topics = [
+    "chezmoi",
+    "dotfiles",
+  ]
+
+  delete_branch_on_merge = true
+}
+
 resource "github_repository" "pass" {
   name = "password-store"
 
@@ -17,4 +32,6 @@ resource "github_repository" "pass" {
   has_issues   = false
   has_projects = false
   has_wiki     = false
+
+  delete_branch_on_merge = true
 }
