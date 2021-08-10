@@ -1,4 +1,4 @@
-path "pki/internal/issue/consul"
+path "pki/issue/consul"
 {
   capabilities = ["create", "update"]
 }

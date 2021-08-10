@@ -1,41 +1,40 @@
-resource "vault_mount" "internal_pki" {
-  path        = "pki/internal"
-  type        = "pki"
-  description = "For use inside homelab"
-
-  default_lease_ttl_seconds = "864000"    # 10d
+resource "vault_mount" "pki" {
+  type                      = "pki"
+  path                      = "pki"
+  default_lease_ttl_seconds = "2592000"   # 30d
   max_lease_ttl_seconds     = "315360000" # 10y
 }
 
-resource "vault_pki_secret_backend_root_cert" "internal_ca" {
-  backend = vault_mount.internal_pki.path
+resource "vault_pki_secret_backend_root_cert" "internal" {
+  backend = vault_mount.pki.path
 
   type                 = "internal"
-  common_name          = "Internal CA"
+  common_name          = "Vault Internal CA"
+  organization         = "nahsi-homelab"
   format               = "pem"
   ttl                  = "315360000" # 10y
   private_key_format   = "der"
   key_type             = "rsa"
   key_bits             = 4096
   exclude_cn_from_sans = true
-  organization         = "nahsi-homelab"
 }
 
 resource "vault_pki_secret_backend_config_urls" "internal_config_urls" {
-  backend = vault_mount.internal_pki.path
+  backend = vault_mount.pki.path
 
-  issuing_certificates    = ["https://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/ca"]
-  crl_distribution_points = ["https://vault.service.consul:8200/v1/${vault_mount.internal_pki.path}/crl"]
+  issuing_certificates = [
+    "http://vault.service.consul:8200/v1/${vault_mount.pki.path}/ca"
+  ]
+  crl_distribution_points = [
+    "http://vault.service.consul:8200/v1/${vault_mount.pki.path}/crl"
+  ]
 }
 
 resource "vault_pki_secret_backend_role" "consul" {
-  backend = vault_mount.internal_pki.path
+  backend = vault_mount.pki.path
   name    = "consul"
 
-  max_ttl          = "864000" # 10d
-  allow_subdomains = true
-  allow_localhost  = true
-  allow_ip_sans    = true
+  max_ttl = "7776000" # 90d
 
   key_usage = [
     "DigitalSignature",
@@ -44,7 +43,10 @@ resource "vault_pki_secret_backend_role" "consul" {
   ]
 
   allowed_domains = [
-    "consul",
-    "nomad"
+    "consul"
   ]
+
+  allow_subdomains = true
+  allow_localhost  = true
+  allow_ip_sans    = true
 }
