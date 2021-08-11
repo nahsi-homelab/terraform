@@ -8,6 +8,11 @@ resource "vault_policy" "grafana" {
   policy = file("policies/grafana.hcl")
 }
 
+resource "vault_policy" "unpoller" {
+  name   = "unpoller"
+  policy = file("policies/unpoller.hcl")
+}
+
 resource "vault_policy" "nomad-server" {
   name   = "nomad-server"
   policy = file("policies/nomad-server.hcl")
