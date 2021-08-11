@@ -1,6 +1,6 @@
 resource "vault_token_auth_backend_role" "nomad-cluster" {
   role_name              = "nomad-cluster"
-  allowed_policies       = ["internal-certs", "public-cert"]
+  allowed_policies       = ["internal-certs", "public-cert", "grafana"]
   renewable              = true
   token_period           = "259200" # 3d
   orphan                 = true
