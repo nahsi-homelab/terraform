@@ -50,3 +50,23 @@ resource "vault_pki_secret_backend_role" "consul" {
   allow_localhost  = true
   allow_ip_sans    = true
 }
+
+resource "vault_pki_secret_backend_role" "internal" {
+  backend = vault_mount.pki.path
+  name    = "internal"
+
+  max_ttl = "7776000" # 90d
+
+  key_usage = [
+    "DigitalSignature",
+    "KeyAgreement",
+    "KeyEncipherment",
+  ]
+
+  allowed_domains = [
+    "consul"
+  ]
+
+  allow_glob_domains = true
+  allow_subdomains = true
+}
