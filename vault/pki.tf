@@ -9,7 +9,7 @@ resource "vault_pki_secret_backend_root_cert" "internal" {
   backend = vault_mount.pki.path
 
   type                 = "internal"
-  common_name          = "Vault Internal CA"
+  common_name          = "Vault CA"
   organization         = "nahsi-homelab"
   format               = "pem"
   ttl                  = "315360000" # 10y
