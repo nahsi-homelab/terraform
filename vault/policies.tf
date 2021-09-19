@@ -13,6 +13,16 @@ resource "vault_policy" "postgres" {
   policy = file("policies/postgres.hcl")
 }
 
+resource "vault_policy" "linkace" {
+  name   = "linkace"
+  policy = file("policies/linkace.hcl")
+}
+
+resource "vault_policy" "postgres-exporter" {
+  name   = "postgres-exporter"
+  policy = file("policies/postgres-exporter.hcl")
+}
+
 resource "vault_policy" "unpoller" {
   name   = "unpoller"
   policy = file("policies/unpoller.hcl")

@@ -14,7 +14,9 @@ resource "vault_token_auth_backend_role" "nomad-cluster" {
     "public-cert",
     "grafana",
     "postgres",
-    "unpoller"
+    "unpoller",
+    "linkace",
+    "postgres-exporter"
   ]
   renewable              = true
   token_period           = "259200" # 3d
