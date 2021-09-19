@@ -4,6 +4,7 @@ resource "vault_token_auth_backend_role" "nomad-cluster" {
     "internal-certs",
     "public-cert",
     "grafana",
+    "postgres",
     "unpoller"
   ]
   renewable              = true
