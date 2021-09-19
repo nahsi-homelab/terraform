@@ -28,7 +28,7 @@ path "sys/policies/acl"
   capabilities = ["list"]
 }
 
-# Create and manage secrets engines broadly across Vault.
+# Create and manage secrets engines broadly across Vault
 path "sys/mounts/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
@@ -40,10 +40,22 @@ path "sys/mounts"
   capabilities = ["read", "list"]
 }
 
+# Remount secret engines
+path "sys/remount"
+{
+  capabilities = ["update", "sudo"]
+}
+
 # Read health checks
 path "sys/health"
 {
   capabilities = ["read", "sudo"]
+}
+
+# Read logs
+path "sys/monitor"
+{
+  capabilities = ["read"]
 }
 
 # List, create, update, and delete key/value secrets at secret/
@@ -56,4 +68,18 @@ path "secret/*"
 path "pki/*"
 {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+# Configure the database secrets engine and create roles
+path "database/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
+# Manage the leases
+path "sys/leases/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
+path "sys/leases/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
