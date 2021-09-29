@@ -15,6 +15,10 @@ resource "github_repository" "nomad" {
   has_projects = false
   has_wiki     = false
 
+  topics = [
+    "nomad"
+  ]
+
   delete_branch_on_merge = true
 }
 
@@ -27,9 +31,8 @@ resource "github_repository" "ansible" {
   has_wiki     = false
 
   topics = [
-    "homelab",
     "ansible",
-    "gentoo",
+    "gentoo"
   ]
 
   delete_branch_on_merge = true
