@@ -5,6 +5,11 @@ resource "github_repository" "terraform" {
   has_projects = false
   has_wiki     = false
 
+  topics = [
+    "homelab",
+    "hashicorp"
+  ]
+
   delete_branch_on_merge = true
 }
 
@@ -16,7 +21,10 @@ resource "github_repository" "nomad" {
   has_wiki     = false
 
   topics = [
-    "nomad"
+    "homelab",
+    "hashicorp",
+    "nomad",
+    "nomad-jobs"
   ]
 
   delete_branch_on_merge = true
@@ -31,6 +39,8 @@ resource "github_repository" "ansible" {
   has_wiki     = false
 
   topics = [
+    "homelab",
+    "hashicorp",
     "ansible",
     "gentoo"
   ]
