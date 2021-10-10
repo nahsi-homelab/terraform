@@ -15,7 +15,7 @@ resource "vault_token_auth_backend_role" "nomad-cluster" {
     "grafana",
     "postgres",
     "unpoller",
-    "linkace",
+    "dendrite",
     "postgres-exporter"
   ]
   renewable              = true

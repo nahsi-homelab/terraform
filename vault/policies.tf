@@ -13,9 +13,9 @@ resource "vault_policy" "postgres" {
   policy = file("policies/postgres.hcl")
 }
 
-resource "vault_policy" "linkace" {
-  name   = "linkace"
-  policy = file("policies/linkace.hcl")
+resource "vault_policy" "dendrite" {
+  name   = "dendrite"
+  policy = file("policies/dendrite.hcl")
 }
 
 resource "vault_policy" "postgres-exporter" {
