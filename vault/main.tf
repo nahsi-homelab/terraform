@@ -9,14 +9,10 @@ resource "vault_mount" "secret" {
 
 resource "vault_token_auth_backend_role" "nomad-cluster" {
   role_name = "nomad-cluster"
-  allowed_policies = [
-    "internal-certs",
-    "public-cert",
-    "grafana",
-    "postgres",
-    "unpoller",
-    "dendrite",
-    "postgres-exporter"
+  disallowed_policies = [
+    "default",
+    "admin",
+    "vault-agent"
   ]
   renewable              = true
   token_period           = "259200" # 3d
