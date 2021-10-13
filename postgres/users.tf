@@ -12,7 +12,7 @@ resource "vault_database_secret_backend_static_role" "postgres-exporter" {
 
 resource "vault_policy" "postgres-exporter" {
   name   = "postgres-exporter"
-  policy =<<-EOF
+  policy = <<-EOF
 path "database/static-creds/postgres-exporter"
 {
   capabilities = ["read"]
@@ -34,7 +34,7 @@ resource "vault_database_secret_backend_static_role" "dendrite" {
 
 resource "vault_policy" "dendrite" {
   name   = "dendrite"
-  policy =<<-EOF
+  policy = <<-EOF
 path "database/static-creds/dendrite"
 {
   capabilities = ["read"]
