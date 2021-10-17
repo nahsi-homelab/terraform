@@ -28,6 +28,11 @@ resource "vault_policy" "postgres" {
   policy = file("policies/postgres.hcl")
 }
 
+resource "vault_policy" "dendrite" {
+  name   = "dendrite"
+  policy = file("policies/dendrite.hcl")
+}
+
 resource "vault_policy" "unpoller" {
   name   = "unpoller"
   policy = file("policies/unpoller.hcl")

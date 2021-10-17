@@ -18,13 +18,3 @@ resource "vault_database_secret_backend_static_role" "dendrite" {
   ]
   rotation_period = "86400"
 }
-
-resource "vault_policy" "dendrite" {
-  name   = "dendrite"
-  policy = <<-EOF
-path "database/static-creds/dendrite"
-{
-  capabilities = ["read"]
-}
-EOF
-}
