@@ -9,6 +9,15 @@ resource "github_repository" "overlay" {
   delete_branch_on_merge = true
 }
 
+resource "github_repository" "patroni" {
+  name        = "patroni"
+
+  has_projects = false
+  has_wiki     = false
+
+  delete_branch_on_merge = true
+}
+
 resource "github_repository" "dotfiles" {
   name = "dotfiles"
 
