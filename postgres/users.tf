@@ -1,6 +1,7 @@
 # dendrite
 resource "postgresql_role" "dendrite" {
   name = "dendrite"
+  login = true
 }
 
 resource "postgresql_database" "dendrite" {
