@@ -13,6 +13,16 @@ resource "vault_policy" "zookeeper" {
   policy = file("policies/zookeeper.hcl")
 }
 
+resource "vault_policy" "kafka" {
+  name   = "kafka"
+  policy = file("policies/kafka.hcl")
+}
+
+resource "vault_policy" "kminion" {
+  name   = "kminion"
+  policy = file("policies/kminion.hcl")
+}
+
 resource "vault_policy" "postgres" {
   name   = "postgres"
   policy = file("policies/postgres.hcl")
