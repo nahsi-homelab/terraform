@@ -16,13 +16,3 @@ provider "kafka" {
   sasl_username = data.vault_generic_secret.kafka.data["username"]
   sasl_password = data.vault_generic_secret.kafka.data["password"]
 }
-
-resource "kafka_topic" "test" {
-  name               = "test"
-  replication_factor = 2
-  partitions         = 10
-
-  config = {
-    "cleanup.policy" = "compact"
-  }
-}
