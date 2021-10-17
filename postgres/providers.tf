@@ -3,11 +3,11 @@ provider "vault" {
 }
 
 data "vault_generic_secret" "postgres" {
-  path = "secret/postgres"
+  path = "secret/postgres/superuser"
 }
 
 provider "postgresql" {
-  host            = "postgres.service.consul"
+  host            = "master.postgres.service.consul"
   port            = 5432
   database        = "postgres"
   username        = data.vault_generic_secret.postgres.data["username"]
