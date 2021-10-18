@@ -33,6 +33,11 @@ resource "vault_policy" "dendrite" {
   policy = file("policies/dendrite.hcl")
 }
 
+resource "vault_policy" "firefly" {
+  name   = "firefly"
+  policy = file("policies/firefly.hcl")
+}
+
 resource "vault_policy" "unpoller" {
   name   = "unpoller"
   policy = file("policies/unpoller.hcl")

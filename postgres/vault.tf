@@ -7,7 +7,8 @@ resource "vault_database_secret_backend_connection" "postgres" {
   backend = vault_mount.database.path
   name    = "postgres"
   allowed_roles = [
-    "dendrite"
+    "dendrite",
+    "firefly"
   ]
 
   postgresql {
