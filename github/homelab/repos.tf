@@ -47,3 +47,14 @@ resource "github_repository" "ansible" {
 
   delete_branch_on_merge = true
 }
+
+resource "github_repository" "docker" {
+  name = "docker"
+  description = "Dockerfile collection"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+
+  delete_branch_on_merge = true
+}
