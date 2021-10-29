@@ -54,3 +54,15 @@ resource "github_repository" "pass" {
 
   delete_branch_on_merge = true
 }
+
+resource "github_repository" "presentations" {
+  name = "presentations"
+
+  visibility = "private"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+
+  delete_branch_on_merge = true
+}
