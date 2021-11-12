@@ -49,8 +49,18 @@ resource "github_repository" "ansible" {
 }
 
 resource "github_repository" "docker" {
-  name = "docker"
+  name        = "docker"
   description = "Dockerfile collection"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+
+  delete_branch_on_merge = true
+}
+
+resource "github_repository" "packer" {
+  name = "packer"
 
   has_issues   = false
   has_projects = false
