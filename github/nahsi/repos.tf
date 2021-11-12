@@ -10,7 +10,7 @@ resource "github_repository" "overlay" {
 }
 
 resource "github_repository" "www" {
-  name        = "www"
+  name = "www"
 
   has_issues   = false
   has_projects = false
