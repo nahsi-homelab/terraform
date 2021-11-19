@@ -8,6 +8,8 @@ resource "github_repository" "ansible-consul" {
     "ansible"
   ]
 
+  has_issues = true
+
   allow_merge_commit     = false
   allow_rebase_merge     = false
   delete_branch_on_merge = true
@@ -30,6 +32,8 @@ resource "github_repository" "ansible-nomad" {
     "hashicorp",
     "ansible"
   ]
+
+  has_issues = true
 
   allow_merge_commit     = false
   allow_rebase_merge     = false
