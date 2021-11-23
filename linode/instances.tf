@@ -40,7 +40,7 @@ resource "linode_firewall" "main" {
     label    = "wireguard"
     action   = "ACCEPT"
     protocol = "UDP"
-    ports    = "53731"
+    ports    = "59795"
     ipv4 = [
       "91.245.37.33/32", # syria
       "81.23.150.126/32" # asia
@@ -53,12 +53,18 @@ resource "linode_firewall" "main" {
   linodes = [linode_instance.narona.id]
 }
 
-resource "namecheap_domain_records" "thracia" {
+resource "namecheap_domain_records" "dalmatia" {
   domain = "nahsi.dev"
   mode   = "MERGE"
 
   record {
-    hostname = "thracia"
+    hostname = "dalmatia"
+    type     = "A"
+    address  = linode_instance.narona.ip_address
+  }
+
+  record {
+    hostname = "narona"
     type     = "A"
     address  = linode_instance.narona.ip_address
   }
