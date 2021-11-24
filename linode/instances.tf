@@ -1,8 +1,9 @@
 resource "linode_instance" "narona" {
-  label  = "narona"
-  image  = "linode/gentoo"
-  region = "eu-central"
-  type   = "g6-standard-2"
+  label      = "narona"
+  image      = "linode/gentoo"
+  region     = "eu-central"
+  type       = "g6-standard-2"
+  private_ip = true
 
   authorized_users = ["nahsi"]
 }
@@ -24,7 +25,7 @@ resource "linode_firewall" "main" {
     protocol = "TCP"
     ports    = "80"
     ipv4     = ["0.0.0.0/0"]
-    ipv6     = ["::0/0"]
+    ipv6     = ["::/0"]
   }
 
   inbound {
@@ -33,7 +34,7 @@ resource "linode_firewall" "main" {
     protocol = "TCP"
     ports    = "443"
     ipv4     = ["0.0.0.0/0"]
-    ipv6     = ["::0/0"]
+    ipv6     = ["::/0"]
   }
 
   inbound {
