@@ -36,4 +36,10 @@ resource "namecheap_domain_records" "nahsi-dev" {
     type     = "A"
     address  = "91.245.37.33"
   }
+
+  record {
+    hostname = "audioserve"
+    type     = "A"
+    address  = "91.245.37.33"
+  }
 }
