@@ -1,5 +1,5 @@
-resource "linode_instance" "narona" {
-  label      = "narona"
+resource "linode_instance" "heraclea" {
+  label      = "heraclea"
   image      = "linode/gentoo"
   region     = "eu-central"
   type       = "g6-standard-2"
@@ -51,22 +51,22 @@ resource "linode_firewall" "main" {
   inbound_policy  = "DROP"
   outbound_policy = "ACCEPT"
 
-  linodes = [linode_instance.narona.id]
+  linodes = [linode_instance.heraclea.id]
 }
 
-resource "namecheap_domain_records" "dalmatia" {
+resource "namecheap_domain_records" "pontus" {
   domain = "nahsi.dev"
   mode   = "MERGE"
 
   record {
-    hostname = "dalmatia"
+    hostname = "pontus"
     type     = "A"
-    address  = linode_instance.narona.ip_address
+    address  = linode_instance.heraclea.ip_address
   }
 
   record {
-    hostname = "narona"
+    hostname = "heraclea"
     type     = "A"
-    address  = linode_instance.narona.ip_address
+    address  = linode_instance.heraclea.ip_address
   }
 }
