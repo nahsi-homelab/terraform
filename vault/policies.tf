@@ -48,6 +48,11 @@ resource "vault_policy" "firefly" {
   policy = file("policies/firefly.hcl")
 }
 
+resource "vault_policy" "sftpg" {
+  name   = "sftpgo"
+  policy = file("policies/sftpgo.hcl")
+}
+
 resource "vault_policy" "unpoller" {
   name   = "unpoller"
   policy = file("policies/unpoller.hcl")
