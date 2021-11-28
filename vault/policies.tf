@@ -18,6 +18,11 @@ resource "vault_policy" "grafana" {
   policy = file("policies/grafana.hcl")
 }
 
+resource "vault_policy" "minio" {
+  name   = "minio"
+  policy = file("policies/minio.hcl")
+}
+
 resource "vault_policy" "zookeeper" {
   name   = "zookeeper"
   policy = file("policies/zookeeper.hcl")
