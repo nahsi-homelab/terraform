@@ -1,6 +1,6 @@
 # dendrite
 resource "postgresql_role" "dendrite" {
-  name = "dendrite"
+  name  = "dendrite"
   login = true
   lifecycle {
     ignore_changes = [
@@ -25,9 +25,9 @@ resource "vault_database_secret_backend_static_role" "dendrite" {
   rotation_period = "86400"
 }
 
-# firefly
-resource "postgresql_role" "firefly" {
-  name = "firefly"
+# sftpgo
+resource "postgresql_role" "sftpgo" {
+  name  = "sftpgo"
   login = true
   lifecycle {
     ignore_changes = [
@@ -36,16 +36,16 @@ resource "postgresql_role" "firefly" {
   }
 }
 
-resource "postgresql_database" "firefly" {
-  name  = "firefly"
-  owner = "firefly"
+resource "postgresql_database" "sftpgo" {
+  name  = "sftpgo"
+  owner = "sftpgo"
 }
 
-resource "vault_database_secret_backend_static_role" "firefly" {
+resource "vault_database_secret_backend_static_role" "sftpgo" {
   backend  = vault_mount.database.path
-  name     = "firefly"
+  name     = "sftpgo"
   db_name  = vault_database_secret_backend_connection.postgres.name
-  username = "firefly"
+  username = "sftpgo"
   rotation_statements = [
     "ALTER USER \"{{name}}\" WITH PASSWORD '{{password}}';"
   ]
