@@ -63,10 +63,4 @@ resource "namecheap_domain_records" "pontus" {
     type     = "A"
     address  = linode_instance.heraclea.ip_address
   }
-
-  record {
-    hostname = "heraclea"
-    type     = "A"
-    address  = linode_instance.heraclea.ip_address
-  }
 }
