@@ -69,4 +69,6 @@ resource "vault_pki_secret_backend_role" "internal" {
 
   allow_glob_domains = true
   allow_subdomains   = true
+  allow_localhost    = true
+  allow_ip_sans      = true
 }

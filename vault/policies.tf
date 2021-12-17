@@ -3,6 +3,11 @@ resource "vault_policy" "admin" {
   policy = file("policies/admin.hcl")
 }
 
+resource "vault_policy" "github-runners" {
+  name   = "github-runners"
+  policy = file("policies/github-runners.hcl")
+}
+
 resource "vault_policy" "website" {
   name   = "website"
   policy = file("policies/website.hcl")
@@ -11,6 +16,11 @@ resource "vault_policy" "website" {
 resource "vault_policy" "audioserve" {
   name   = "audioserve"
   policy = file("policies/audioserve.hcl")
+}
+
+resource "vault_policy" "prometheus" {
+  name   = "prometheus"
+  policy = file("policies/prometheus.hcl")
 }
 
 resource "vault_policy" "grafana" {
