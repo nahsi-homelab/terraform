@@ -43,6 +43,11 @@ resource "vault_policy" "kafka" {
   policy = file("policies/kafka.hcl")
 }
 
+resource "vault_policy" "mongo" {
+  name   = "mongo"
+  policy = file("policies/mongo.hcl")
+}
+
 resource "vault_policy" "kminion" {
   name   = "kminion"
   policy = file("policies/kminion.hcl")
