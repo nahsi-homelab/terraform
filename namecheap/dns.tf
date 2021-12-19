@@ -27,7 +27,6 @@ resource "namecheap_domain_records" "nahsi-dev" {
     address  = local.asia
   }
 
-
   # services
   record {
     hostname = "jellyfin"
@@ -41,22 +40,29 @@ resource "namecheap_domain_records" "nahsi-dev" {
     address  = "syria.nahsi.dev"
   }
 
+  # LLPSI
+  record {
+    hostname = "llpsi"
+    type     = "CNAME"
+    address  = "asia.nahsi.dev"
+  }
+
+  record {
+    hostname = "llpsi"
+    type     = "CNAME"
+    address  = "syria.nahsi.dev"
+  }
+
   # s3
   record {
     hostname = "minio"
     type     = "CNAME"
-    address  = "syria.nahsi.dev"
+    address  = "asia.nahsi.dev"
   }
 
   record {
     hostname = "minio"
     type     = "CNAME"
-    address  = "asia.nahsi.dev"
-  }
-
-  record {
-    hostname = "s3"
-    type     = "CNAME"
     address  = "syria.nahsi.dev"
   }
 
@@ -64,5 +70,11 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "s3"
     type     = "CNAME"
     address  = "asia.nahsi.dev"
+  }
+
+  record {
+    hostname = "s3"
+    type     = "CNAME"
+    address  = "syria.nahsi.dev"
   }
 }
