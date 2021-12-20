@@ -1,4 +1,4 @@
-path "database/static-creds/dendrite"
+path "postgres/static-creds/dendrite"
 {
   capabilities = ["read"]
 }

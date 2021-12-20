@@ -71,7 +71,12 @@ path "pki/*"
 }
 
 # Configure the database secrets engine and create roles
-path "database/*" {
+path "postgres/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
+# Configure the database secrets engine and create roles
+path "mongo/*" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
 

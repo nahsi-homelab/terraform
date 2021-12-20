@@ -48,6 +48,11 @@ resource "vault_policy" "mongo" {
   policy = file("policies/mongo.hcl")
 }
 
+resource "vault_policy" "mongo-exporter" {
+  name   = "mongo-exporter"
+  policy = file("policies/mongo-exporter.hcl")
+}
+
 resource "vault_policy" "kminion" {
   name   = "kminion"
   policy = file("policies/kminion.hcl")
@@ -61,11 +66,6 @@ resource "vault_policy" "postgres" {
 resource "vault_policy" "dendrite" {
   name   = "dendrite"
   policy = file("policies/dendrite.hcl")
-}
-
-resource "vault_policy" "firefly" {
-  name   = "firefly"
-  policy = file("policies/firefly.hcl")
 }
 
 resource "vault_policy" "sftpg" {
