@@ -1,4 +1,9 @@
-path "mongo/static-creds/exporter"
+path "mongo/creds/exporter"
 {
   capabilities = ["read"]
+}
+
+path "pki/issue/internal"
+{
+  capabilities = ["create", "update"]
 }
