@@ -1,5 +1,5 @@
 resource "vault_mount" "database" {
-  path = "database"
+  path = "postgres"
   type = "database"
 }
 
