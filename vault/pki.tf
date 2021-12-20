@@ -63,8 +63,17 @@ resource "vault_pki_secret_backend_role" "internal" {
     "KeyEncipherment",
   ]
 
+  ext_key_usage = [
+    "ClientAuth",
+    "ServerAuth"
+  ]
+
   allowed_domains = [
     "consul"
+  ]
+
+  organization = [
+    "homelab"
   ]
 
   allow_glob_domains = true
