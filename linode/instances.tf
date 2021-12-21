@@ -62,5 +62,6 @@ resource "namecheap_domain_records" "pontus" {
     hostname = "pontus"
     type     = "A"
     address  = linode_instance.heraclea.ip_address
+    ttl      = "3600"
   }
 }

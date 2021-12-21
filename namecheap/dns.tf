@@ -12,14 +12,14 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "@"
     type     = "A"
     address  = local.syria
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "@"
     type     = "A"
     address  = local.asia
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   # dc
@@ -27,14 +27,14 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "syria"
     type     = "A"
     address  = local.syria
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "asia"
     type     = "A"
     address  = local.asia
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   # services
@@ -42,14 +42,14 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "jellyfin"
     type     = "CNAME"
     address  = "syria.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "audioserve"
     type     = "CNAME"
     address  = "syria.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   # mail
@@ -57,14 +57,14 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "mail"
     type     = "CNAME"
     address  = "syria.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "mail"
     type     = "CNAME"
     address  = "asia.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   # LLPSI
@@ -72,14 +72,14 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "llpsi"
     type     = "CNAME"
     address  = "asia.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "llpsi"
     type     = "CNAME"
     address  = "syria.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   # s3
@@ -87,27 +87,27 @@ resource "namecheap_domain_records" "nahsi-dev" {
     hostname = "minio"
     type     = "CNAME"
     address  = "asia.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "minio"
     type     = "CNAME"
     address  = "syria.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "s3"
     type     = "CNAME"
     address  = "asia.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 
   record {
     hostname = "s3"
     type     = "CNAME"
     address  = "syria.nahsi.dev"
-    ttl      = "7200"
+    ttl      = "3600"
   }
 }
