@@ -40,6 +40,19 @@ resource "namecheap_domain_records" "nahsi-dev" {
     address  = "syria.nahsi.dev"
   }
 
+  # mail
+  record {
+    hostname = "mail"
+    type     = "CNAME"
+    address  = "syria.nahsi.dev"
+  }
+
+  record {
+    hostname = "mail"
+    type     = "CNAME"
+    address  = "asia.nahsi.dev"
+  }
+
   # LLPSI
   record {
     hostname = "llpsi"
