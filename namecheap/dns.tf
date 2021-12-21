@@ -15,12 +15,12 @@ resource "namecheap_domain_records" "nahsi-dev" {
     ttl      = "3600"
   }
 
-  record {
-    hostname = "@"
-    type     = "A"
-    address  = local.asia
-    ttl      = "3600"
-  }
+  /* record { */
+  /*   hostname = "@" */
+  /*   type     = "A" */
+  /*   address  = local.asia */
+  /*   ttl      = "3600" */
+  /* } */
 
   # dc
   record {
@@ -60,49 +60,42 @@ resource "namecheap_domain_records" "nahsi-dev" {
     ttl      = "3600"
   }
 
-  record {
-    hostname = "mail"
-    type     = "CNAME"
-    address  = "asia.nahsi.dev"
-    ttl      = "3600"
-  }
+  /* record { */
+  /*   hostname = "mail" */
+  /*   type     = "CNAME" */
+  /*   address  = "asia.nahsi.dev" */
+  /*   ttl      = "3600" */
+  /* } */
 
   # LLPSI
   record {
     hostname = "llpsi"
     type     = "CNAME"
-    address  = "asia.nahsi.dev"
-    ttl      = "3600"
-  }
-
-  record {
-    hostname = "llpsi"
-    type     = "CNAME"
     address  = "syria.nahsi.dev"
     ttl      = "3600"
   }
+
+  /* record { */
+  /*   hostname = "llpsi" */
+  /*   type     = "CNAME" */
+  /*   address  = "asia.nahsi.dev" */
+  /*   ttl      = "3600" */
+  /* } */
 
   # s3
   record {
     hostname = "minio"
     type     = "CNAME"
-    address  = "asia.nahsi.dev"
-    ttl      = "3600"
-  }
-
-  record {
-    hostname = "minio"
-    type     = "CNAME"
     address  = "syria.nahsi.dev"
     ttl      = "3600"
   }
 
-  record {
-    hostname = "s3"
-    type     = "CNAME"
-    address  = "asia.nahsi.dev"
-    ttl      = "3600"
-  }
+  /* record { */
+  /*   hostname = "minio" */
+  /*   type     = "CNAME" */
+  /*   address  = "asia.nahsi.dev" */
+  /*   ttl      = "3600" */
+  /* } */
 
   record {
     hostname = "s3"
@@ -110,4 +103,11 @@ resource "namecheap_domain_records" "nahsi-dev" {
     address  = "syria.nahsi.dev"
     ttl      = "3600"
   }
+
+  /* record { */
+  /*   hostname = "s3" */
+  /*   type     = "CNAME" */
+  /*   address  = "asia.nahsi.dev" */
+  /*   ttl      = "3600" */
+  /* } */
 }
