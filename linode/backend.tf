@@ -9,8 +9,8 @@ terraform {
       source = "linode/linode"
     }
 
-    namecheap = {
-      source = "namecheap/namecheap"
+    cloudflare = {
+      source = "cloudflare/cloudflare"
     }
   }
 }

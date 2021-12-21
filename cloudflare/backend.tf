@@ -2,11 +2,14 @@ terraform {
   backend "consul" {
     address = "consul.service.consul:8500"
     scheme  = "http"
-    path    = "terraform/namecheap"
+    path    = "terraform/cloudflare"
   }
+
   required_providers {
-    namecheap = {
-      source = "namecheap/namecheap"
+    cloudflare = {
+      source = "cloudflare/cloudflare"
     }
   }
 }
+
+provider "cloudflare" {}

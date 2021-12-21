@@ -53,15 +53,3 @@ resource "linode_firewall" "main" {
 
   linodes = [linode_instance.heraclea.id]
 }
-
-resource "namecheap_domain_records" "pontus" {
-  domain = "nahsi.dev"
-  mode   = "MERGE"
-
-  record {
-    hostname = "pontus"
-    type     = "A"
-    address  = linode_instance.heraclea.ip_address
-    ttl      = "3600"
-  }
-}
