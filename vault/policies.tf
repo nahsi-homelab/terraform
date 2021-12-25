@@ -3,9 +3,9 @@ resource "vault_policy" "admin" {
   policy = file("policies/admin.hcl")
 }
 
-resource "vault_policy" "github-runners" {
-  name   = "github-runners"
-  policy = file("policies/github-runners.hcl")
+resource "vault_policy" "github-runner" {
+  name   = "github-runner"
+  policy = file("policies/github-runner.hcl")
 }
 
 resource "vault_policy" "website" {
