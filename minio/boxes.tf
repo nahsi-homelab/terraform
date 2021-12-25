@@ -10,7 +10,6 @@ resource "minio_iam_policy" "boxes" {
     "Statement": [
       {
         "Action": [
-          "s3:GetBucketLocation",
           "s3:ListAllMyBuckets"
         ],
         "Effect": "Allow",
@@ -20,7 +19,8 @@ resource "minio_iam_policy" "boxes" {
       },
       {
         "Action": [
-          "s3:ListBucket"
+          "s3:ListBucket",
+          "s3:GetBucketLocation"
         ],
         "Effect": "Allow",
         "Resource": [
