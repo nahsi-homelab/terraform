@@ -76,14 +76,10 @@ resource "github_repository" "hashistack" {
   delete_branch_on_merge = true
 }
 
-resource "github_repository" "selfhosted-runners-test" {
-  name = "selfhosted-runners-test"
+resource "github_repository" "workflows-test" {
+  name = "workflows-test"
 
   visibility = "private"
-
-  has_issues   = false
-  has_projects = false
-  has_wiki     = false
 
   delete_branch_on_merge = true
 }
