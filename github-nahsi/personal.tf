@@ -9,14 +9,6 @@ resource "github_repository" "overlay" {
   delete_branch_on_merge = true
 }
 
-resource "github_repository" "files-to-matrix" {
-  name                   = "files-to-matrix"
-  delete_branch_on_merge = true
-  has_wiki               = false
-  allow_merge_commit     = false
-  allow_rebase_merge     = false
-}
-
 resource "github_repository" "www" {
   name = "www"
 
