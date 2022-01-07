@@ -28,6 +28,9 @@ resource "github_repository" "nomad" {
   ]
 
   delete_branch_on_merge = true
+
+  allow_merge_commit = false
+  allow_rebase_merge = false
 }
 
 resource "github_repository" "ansible" {
@@ -46,6 +49,9 @@ resource "github_repository" "ansible" {
   ]
 
   delete_branch_on_merge = true
+
+  allow_merge_commit = false
+  allow_rebase_merge = false
 }
 
 resource "github_repository" "docker" {
@@ -57,6 +63,9 @@ resource "github_repository" "docker" {
   has_wiki     = false
 
   delete_branch_on_merge = true
+
+  allow_merge_commit = false
+  allow_rebase_merge = false
 }
 
 resource "github_repository" "packer" {
@@ -67,4 +76,7 @@ resource "github_repository" "packer" {
   has_wiki     = false
 
   delete_branch_on_merge = true
+
+  allow_merge_commit = false
+  allow_rebase_merge = false
 }
