@@ -43,6 +43,26 @@ resource "vault_policy" "kafka" {
   policy = file("policies/kafka.hcl")
 }
 
+resource "vault_policy" "wildduck" {
+  name   = "wildduck"
+  policy = file("policies/wildduck.hcl")
+}
+
+resource "vault_policy" "wildduck-webmail" {
+  name   = "wildduck-webmail"
+  policy = file("policies/wildduck-webmail.hcl")
+}
+
+resource "vault_policy" "haraka" {
+  name   = "haraka"
+  policy = file("policies/haraka.hcl")
+}
+
+resource "vault_policy" "zone-mta" {
+  name   = "zone-mta"
+  policy = file("policies/zone-mta.hcl")
+}
+
 resource "vault_policy" "mongo" {
   name   = "mongo"
   policy = file("policies/mongo.hcl")

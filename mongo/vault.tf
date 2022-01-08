@@ -9,7 +9,10 @@ resource "vault_database_secret_backend_connection" "mongo" {
 
   allowed_roles = [
     "exporter",
-    "wildduck"
+    "haraka",
+    "zone-mta",
+    "wildduck",
+    "wildduck-webmail"
   ]
 
   mongodb {
