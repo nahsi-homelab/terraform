@@ -31,7 +31,7 @@ resource "vault_database_secret_backend_role" "wildduck" {
       roles = [
         {
           db   = "wildduck"
-          role = "readwrite"
+          role = "readWrite"
         },
       ]
     })
