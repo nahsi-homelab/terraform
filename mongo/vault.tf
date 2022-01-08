@@ -8,7 +8,8 @@ resource "vault_database_secret_backend_connection" "mongo" {
   name    = "mongo"
 
   allowed_roles = [
-    "exporter"
+    "exporter",
+    "wildduck"
   ]
 
   mongodb {
