@@ -1,4 +1,4 @@
-resource "cloudflare_record" "website-syria" {
+resource "cloudflare_record" "main-syria" {
   zone_id = var.cloudflare_zone_id
   name    = "nahsi.dev"
   value   = var.syria
@@ -6,9 +6,25 @@ resource "cloudflare_record" "website-syria" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "website-asia" {
+resource "cloudflare_record" "main-asia" {
   zone_id = var.cloudflare_zone_id
   name    = "nahsi.dev"
+  value   = var.asia
+  type    = "A"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "blog-syria" {
+  zone_id = var.cloudflare_zone_id
+  name    = "blog"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "blog-asia" {
+  zone_id = var.cloudflare_zone_id
+  name    = "blog"
   value   = var.asia
   type    = "A"
   ttl     = 1
