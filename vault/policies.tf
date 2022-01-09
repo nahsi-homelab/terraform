@@ -13,6 +13,16 @@ resource "vault_policy" "website" {
   policy = file("policies/website.hcl")
 }
 
+resource "vault_policy" "redis-sentinel" {
+  name   = "redis-sentinel"
+  policy = file("policies/redis-sentinel.hcl")
+}
+
+resource "vault_policy" "redis-mail" {
+  name   = "redis-mail"
+  policy = file("policies/redis-mail.hcl")
+}
+
 resource "vault_policy" "audioserve" {
   name   = "audioserve"
   policy = file("policies/audioserve.hcl")

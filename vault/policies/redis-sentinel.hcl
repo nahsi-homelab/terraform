@@ -1,11 +1,11 @@
-path "mongo/creds/wildduck"
+path "secret/data/redis/sentinel"
 {
   capabilities = ["read"]
 }
 
-path "secret/data/redis/mail/users/zone-mta"
+path "secret/data/redis/+/users/+"
 {
-  capabilities = ["read"]
+  capabilities = ["read", "list"]
 }
 
 path "pki/issue/internal"
