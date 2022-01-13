@@ -89,7 +89,7 @@ resource "vault_database_secret_backend_role" "haraka" {
         },
         {
           db   = "wildduck-users"
-          role = "read"
+          role = "readWrite"
         },
       ]
     })

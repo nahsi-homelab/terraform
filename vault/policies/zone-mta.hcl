@@ -3,7 +3,7 @@ path "mongo/creds/zone-mta"
   capabilities = ["read"]
 }
 
-path "secret/data/redis/mail/users/wildduck"
+path "secret/data/redis/mail/users/zone-mta"
 {
   capabilities = ["read"]
 }
