@@ -22,6 +22,14 @@ resource "cloudflare_record" "dkim" {
   ttl     = 3600
 }
 
+resource "cloudflare_record" "dmarc" {
+  zone_id = var.cloudflare_zone_id
+  name    = "_dmarc.nahsi.dev"
+  value   = "v=DMARC1; p=none; rua=mailto:dmarc@nahsi.dev;"
+  type    = "TXT"
+  ttl     = 3600
+}
+
 resource "cloudflare_record" "mail-syria" {
   zone_id = var.cloudflare_zone_id
   name    = "mail"
