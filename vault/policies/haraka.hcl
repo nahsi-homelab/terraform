@@ -13,7 +13,7 @@ path "pki/issue/internal"
   capabilities = ["create", "update"]
 }
 
-path "secret/data/mail"
+path "secret/data/mail/srs"
 {
   capabilities = ["read"]
 }

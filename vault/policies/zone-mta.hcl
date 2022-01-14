@@ -8,7 +8,12 @@ path "secret/data/redis/mail/users/zone-mta"
   capabilities = ["read"]
 }
 
-path "secret/data/mail"
+path "secret/data/mail/srs"
+{
+  capabilities = ["read"]
+}
+
+path "secret/data/mail/zone-mta"
 {
   capabilities = ["read"]
 }
