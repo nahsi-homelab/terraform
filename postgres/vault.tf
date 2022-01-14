@@ -8,7 +8,8 @@ resource "vault_database_secret_backend_connection" "postgres" {
   name    = "postgres"
   allowed_roles = [
     "dendrite",
-    "sftpgo"
+    "sftpgo",
+    "roundcube"
   ]
 
   postgresql {

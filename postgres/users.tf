@@ -51,3 +51,30 @@ resource "vault_database_secret_backend_static_role" "sftpgo" {
   ]
   rotation_period = "86400"
 }
+
+# roundcube
+resource "postgresql_role" "roundcube" {
+  name  = "roundcube"
+  login = true
+  lifecycle {
+    ignore_changes = [
+      password
+    ]
+  }
+}
+
+resource "postgresql_database" "roundcube" {
+  name  = "roundcube"
+  owner = "roundcube"
+}
+
+resource "vault_database_secret_backend_static_role" "roundcube" {
+  backend  = vault_mount.database.path
+  name     = "roundcube"
+  db_name  = vault_database_secret_backend_connection.postgres.name
+  username = "roundcube"
+  rotation_statements = [
+    "ALTER USER \"{{name}}\" WITH PASSWORD '{{password}}';"
+  ]
+  rotation_period = "86400"
+}

@@ -52,25 +52,6 @@ resource "vault_database_secret_backend_role" "wildduck" {
   max_ttl     = "1036800" # 12d
 }
 
-resource "vault_database_secret_backend_role" "wildduck-webmail" {
-  backend = vault_mount.database.path
-  name    = "wildduck-webmail"
-  db_name = vault_database_secret_backend_connection.mongo.name
-  creation_statements = [
-    jsonencode({
-      db = "wildduck-webmail"
-      roles = [
-        {
-          db   = "wildduck-webmail"
-          role = "readWrite"
-        },
-      ]
-    })
-  ]
-  default_ttl = "259200"  # 3d
-  max_ttl     = "1036800" # 12d
-}
-
 resource "vault_database_secret_backend_role" "haraka" {
   backend = vault_mount.database.path
   name    = "haraka"

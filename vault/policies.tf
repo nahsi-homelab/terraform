@@ -58,9 +58,9 @@ resource "vault_policy" "ducky-api" {
   policy = file("policies/ducky-api.hcl")
 }
 
-resource "vault_policy" "wildduck-webmail" {
-  name   = "wildduck-webmail"
-  policy = file("policies/wildduck-webmail.hcl")
+resource "vault_policy" "roundcube" {
+  name   = "roundcube"
+  policy = file("policies/roundcube.hcl")
 }
 
 resource "vault_policy" "haraka" {

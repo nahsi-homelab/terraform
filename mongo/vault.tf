@@ -13,7 +13,6 @@ resource "vault_database_secret_backend_connection" "mongo" {
     "zone-mta",
     "wildduck",
     "ducky-api",
-    "wildduck-webmail"
   ]
 
   mongodb {
