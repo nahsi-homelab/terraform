@@ -114,6 +114,10 @@ resource "vault_database_secret_backend_role" "zone-mta" {
           db   = "wildduck-users"
           role = "read"
         },
+        {
+          db   = "wildduck-attachments"
+          role = "readWrite"
+        },
       ]
     })
   ]
