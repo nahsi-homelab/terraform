@@ -18,6 +18,11 @@ path "secret/data/mail/zone-mta"
   capabilities = ["read"]
 }
 
+path "secret/data/mail/dkim"
+{
+  capabilities = ["read"]
+}
+
 path "pki/issue/internal"
 {
   capabilities = ["create", "update"]

@@ -12,6 +12,7 @@ resource "vault_database_secret_backend_connection" "mongo" {
     "haraka",
     "zone-mta",
     "wildduck",
+    "ducky-api",
     "wildduck-webmail"
   ]
 

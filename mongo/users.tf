@@ -124,3 +124,22 @@ resource "vault_database_secret_backend_role" "zone-mta" {
   default_ttl = "259200"  # 3d
   max_ttl     = "1036800" # 12d
 }
+
+resource "vault_database_secret_backend_role" "ducky-api" {
+  backend = vault_mount.database.path
+  name    = "ducky-api"
+  db_name = vault_database_secret_backend_connection.mongo.name
+  creation_statements = [
+    jsonencode({
+      db = "ducky-api"
+      roles = [
+        {
+          db   = "ducky-api"
+          role = "readWrite"
+        },
+      ]
+    })
+  ]
+  default_ttl = "259200"  # 3d
+  max_ttl     = "1036800" # 12d
+}

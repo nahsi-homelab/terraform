@@ -53,6 +53,11 @@ resource "vault_policy" "wildduck" {
   policy = file("policies/wildduck.hcl")
 }
 
+resource "vault_policy" "ducky-api" {
+  name   = "ducky-api"
+  policy = file("policies/ducky-api.hcl")
+}
+
 resource "vault_policy" "wildduck-webmail" {
   name   = "wildduck-webmail"
   policy = file("policies/wildduck-webmail.hcl")
