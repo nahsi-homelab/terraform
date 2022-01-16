@@ -1,11 +1,21 @@
-resource "cloudflare_record" "mx" {
+resource "cloudflare_record" "mx-syria" {
   zone_id  = var.cloudflare_zone_id
   name     = "nahsi.dev"
-  value    = "nahsi.dev"
+  value    = "syria.nahsi.dev"
   type     = "MX"
   priority = "10"
   ttl      = 3600
 }
+
+resource "cloudflare_record" "mx-asia" {
+  zone_id  = var.cloudflare_zone_id
+  name     = "nahsi.dev"
+  value    = "asia.nahsi.dev"
+  type     = "MX"
+  priority = "20"
+  ttl      = 3600
+}
+
 resource "cloudflare_record" "spf" {
   zone_id = var.cloudflare_zone_id
   name    = "nahsi.dev"
