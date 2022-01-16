@@ -73,6 +73,11 @@ resource "vault_policy" "zone-mta" {
   policy = file("policies/zone-mta.hcl")
 }
 
+resource "vault_policy" "zone-mta-webadmin" {
+  name   = "zone-mta-webadmin"
+  policy = file("policies/zone-mta-webadmin.hcl")
+}
+
 resource "vault_policy" "mongo" {
   name   = "mongo"
   policy = file("policies/mongo.hcl")

@@ -11,6 +11,7 @@ resource "vault_database_secret_backend_connection" "mongo" {
     "exporter",
     "haraka",
     "zone-mta",
+    "zone-mta-webadmin",
     "wildduck",
     "ducky-api",
   ]
