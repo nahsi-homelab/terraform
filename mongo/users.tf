@@ -7,8 +7,9 @@ resource "vault_database_secret_backend_role" "exporter" {
       db = "admin"
       roles = [
         {
-          db   = "admin"
-          role = "clusterMonitor"
+          db      = "admin"
+          role    = "clusterMonitor"
+          actions = "find"
         },
         {
           role = "read"
@@ -27,7 +28,8 @@ resource "vault_database_secret_backend_role" "wildduck" {
   db_name = vault_database_secret_backend_connection.mongo.name
   creation_statements = [
     jsonencode({
-      db = "wildduck"
+      db      = "wildduck"
+      actions = ["listCollection"]
       roles = [
         {
           db   = "wildduck"
