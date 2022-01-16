@@ -9,7 +9,6 @@ resource "vault_database_secret_backend_role" "exporter" {
         {
           db      = "admin"
           role    = "clusterMonitor"
-          actions = "find"
         },
         {
           role = "read"
