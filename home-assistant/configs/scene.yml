@@ -1,0 +1,65 @@
+- name: "Work"
+  icon: "mdi:desktop-classic"
+  entities:
+    light.key_light_left:
+      state: "off"
+
+    light.key_light_right:
+      state: "off"
+
+    light.reading_lamp:
+      state: "off"
+
+    light.ikea_lamp:
+      state: "on"
+      brightness: 150
+      effect: "Rhythm"
+
+    light.ambilight:
+      state: "off"
+
+- name: "Media"
+  icon: "mdi:filmstrip"
+  entities:
+    light.key_light_left:
+      state: "off"
+
+    light.key_light_right:
+      state: "off"
+
+    light.reading_light:
+      state: "off"
+
+    light.ikea_lamp:
+      state: "on"
+      brightness: 150
+      effect: "TV time"
+
+    light.ambilight:
+      state: "on"
+
+- name: "Conference call"
+  icon: "mdi:message-video"
+  entities:
+    light.key_light_left:
+      state: "on"
+      brightness: 100
+      color_temp: 275
+
+    light.key_light_right:
+      state: "on"
+      brightness: 25
+      color_temp: 145
+
+    light.ikea_lamp:
+      state: "on"
+      brightness: 150
+      effect: "TV time"
+
+    light.reading_lamp:
+      state: "on"
+      brightness: 255
+      effect: "Focus"
+
+    light.ambilight:
+      state: "off"
