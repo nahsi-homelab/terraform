@@ -103,9 +103,14 @@ resource "vault_policy" "dendrite" {
   policy = file("policies/dendrite.hcl")
 }
 
-resource "vault_policy" "sftpg" {
+resource "vault_policy" "sftpgo" {
   name   = "sftpgo"
   policy = file("policies/sftpgo.hcl")
+}
+
+resource "vault_policy" "home-assistant" {
+  name   = "home-assistant"
+  policy = file("policies/home-assistant.hcl")
 }
 
 resource "vault_policy" "unpoller" {

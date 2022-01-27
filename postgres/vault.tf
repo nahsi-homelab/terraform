@@ -9,7 +9,8 @@ resource "vault_database_secret_backend_connection" "postgres" {
   allowed_roles = [
     "dendrite",
     "sftpgo",
-    "roundcube"
+    "roundcube",
+    "home-assistant"
   ]
 
   postgresql {

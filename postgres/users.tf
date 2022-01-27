@@ -78,3 +78,30 @@ resource "vault_database_secret_backend_static_role" "roundcube" {
   ]
   rotation_period = "86400"
 }
+
+# home-assistant
+resource "postgresql_role" "home-assistant" {
+  name  = "home-assistant"
+  login = true
+  lifecycle {
+    ignore_changes = [
+      password
+    ]
+  }
+}
+
+resource "postgresql_database" "home-assistant" {
+  name  = "home-assistant"
+  owner = "home-assistant"
+}
+
+resource "vault_database_secret_backend_static_role" "home-assistant" {
+  backend  = vault_mount.database.path
+  name     = "home-assistant"
+  db_name  = vault_database_secret_backend_connection.postgres.name
+  username = "home-assistant"
+  rotation_statements = [
+    "ALTER USER \"{{name}}\" WITH PASSWORD '{{password}}';"
+  ]
+  rotation_period = "86400"
+}
