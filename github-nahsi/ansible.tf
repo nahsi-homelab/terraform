@@ -47,3 +47,28 @@ resource "github_branch_protection" "ansible-nomad" {
   enforce_admins   = true
   allows_deletions = true
 }
+
+resource "github_repository" "ansible-vault" {
+  name        = "ansible-vault"
+  description = "Ansible role for HashiCorp Vault"
+
+  topics = [
+    "vault",
+    "hashicorp",
+    "ansible"
+  ]
+
+  has_issues = true
+
+  allow_merge_commit     = false
+  allow_rebase_merge     = false
+  delete_branch_on_merge = true
+}
+
+resource "github_branch_protection" "ansible-vault" {
+  repository_id = github_repository.ansible-vault.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
