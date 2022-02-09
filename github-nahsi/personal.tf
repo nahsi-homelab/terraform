@@ -19,6 +19,16 @@ resource "github_repository" "www" {
   delete_branch_on_merge = true
 }
 
+resource "github_repository" "resume" {
+  name = "resume"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+
+  delete_branch_on_merge = true
+}
+
 resource "github_repository" "dotfiles" {
   name = "dotfiles"
 
