@@ -53,3 +53,10 @@ resource "cloudflare_record" "llpsi-asia" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "resume" {
+  zone_id = var.cloudflare_zone_id
+  name    = "resume"
+  value   = "nahsi.github.io"
+  type    = "CNAME"
+}
