@@ -1,20 +1,17 @@
-- alias: "Activate call scene"
-  trigger:
-    - platform: "webhook"
-      webhook_id: "call"
+- trigger:
+  - platform: "webhook"
+    webhook_id: "call"
   action:
     - scene: "scene.conference_call"
 
-- alias: "Activate work scene"
-  trigger:
-    - platform: "webhook"
-      webhook_id: "work"
+- trigger:
+  - platform: "webhook"
+    webhook_id: "work"
   action:
     - scene: "scene.work"
 
-- alias: "Activate media scene"
-  trigger:
-    - platform: "webhook"
-      webhook_id: "media"
+- trigger:
+  - platform: "webhook"
+    webhook_id: "media"
   action:
     - scene: "scene.media"

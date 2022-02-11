@@ -18,6 +18,9 @@
     light.ambilight:
       state: "off"
 
+    switch.ambilight_component_led_device:
+      state: "off"
+
 - name: "Media"
   icon: "mdi:filmstrip"
   entities:
@@ -27,7 +30,7 @@
     light.key_light_right:
       state: "off"
 
-    light.reading_light:
+    light.reading_lamp:
       state: "off"
 
     light.ikea_lamp:
@@ -36,6 +39,9 @@
       effect: "TV time"
 
     light.ambilight:
+      state: "on"
+
+    switch.ambilight_component_led_device:
       state: "on"
 
 - name: "Conference call"
@@ -54,7 +60,7 @@
     light.ikea_lamp:
       state: "on"
       brightness: 150
-      effect: "TV time"
+      effect: "Deepdive"
 
     light.reading_lamp:
       state: "on"
