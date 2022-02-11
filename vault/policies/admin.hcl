@@ -70,21 +70,17 @@ path "pki/*"
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
-# Configure the database secrets engine and create roles
+# Manage leases
+path "sys/leases/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
+# Configure the postgres secrets engine and create roles
 path "postgres/*" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
 
-# Configure the database secrets engine and create roles
+# Configure the mongo secrets engine and create roles
 path "mongo/*" {
-  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
-}
-
-# Manage the leases
-path "sys/leases/*" {
-  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
-}
-
-path "sys/leases/*" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
