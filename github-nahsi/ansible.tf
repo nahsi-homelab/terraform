@@ -13,6 +13,7 @@ resource "github_repository" "ansible-consul" {
   allow_merge_commit     = false
   allow_rebase_merge     = false
   delete_branch_on_merge = true
+  vulnerability_alerts   = true
 }
 
 resource "github_branch_protection" "ansible-consul" {
@@ -38,6 +39,7 @@ resource "github_repository" "ansible-nomad" {
   allow_merge_commit     = false
   allow_rebase_merge     = false
   delete_branch_on_merge = true
+  vulnerability_alerts   = true
 }
 
 resource "github_branch_protection" "ansible-nomad" {
@@ -63,6 +65,7 @@ resource "github_repository" "ansible-vault" {
   allow_merge_commit     = false
   allow_rebase_merge     = false
   delete_branch_on_merge = true
+  vulnerability_alerts   = true
 }
 
 resource "github_branch_protection" "ansible-vault" {
