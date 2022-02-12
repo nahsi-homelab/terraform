@@ -68,24 +68,6 @@ resource "github_repository" "presentations" {
   delete_branch_on_merge = true
 }
 
-resource "github_repository" "hashistack" {
-  name = "hashistack"
-
-  has_issues   = false
-  has_projects = false
-  has_wiki     = false
-
-  topics = [
-    "consul",
-    "nomad",
-    "vault",
-    "virtualbox",
-    "service-mesh"
-  ]
-
-  delete_branch_on_merge = true
-}
-
 resource "github_repository" "workflows-test" {
   name = "workflows-test"
 
