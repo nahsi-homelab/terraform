@@ -80,3 +80,34 @@ resource "github_repository" "packer" {
   allow_merge_commit = false
   allow_rebase_merge = false
 }
+
+resource "github_repository" "observability" {
+  name = "observability"
+
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+
+  topics = [
+    "homelab",
+    "hashicorp",
+    "grafana",
+    "prometheus",
+    "victoria-metrics",
+    "observability",
+    "monitoring",
+  ]
+
+  delete_branch_on_merge = true
+
+  allow_merge_commit = false
+  allow_rebase_merge = false
+}
+
+resource "github_branch_protection" "observability" {
+  repository_id = github_repository.observability.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
