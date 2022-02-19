@@ -8,6 +8,7 @@ resource "vault_database_secret_backend_connection" "postgres" {
   name    = "postgres"
   allowed_roles = [
     "admin",
+    "nahsi",
     "grafana",
     "sftpgo",
     "roundcube",
