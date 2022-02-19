@@ -13,6 +13,14 @@ resource "github_repository" "terraform" {
   delete_branch_on_merge = true
 }
 
+resource "github_branch_protection" "terraform" {
+  repository_id = github_repository.terraform.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
+
 resource "github_repository" "nomad" {
   name = "nomad"
 
@@ -31,6 +39,14 @@ resource "github_repository" "nomad" {
 
   allow_merge_commit = false
   allow_rebase_merge = false
+}
+
+resource "github_branch_protection" "nomad" {
+  repository_id = github_repository.nomad.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
 }
 
 resource "github_repository" "ansible" {
@@ -54,6 +70,14 @@ resource "github_repository" "ansible" {
   allow_rebase_merge = false
 }
 
+resource "github_branch_protection" "ansible" {
+  repository_id = github_repository.ansible.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
+
 resource "github_repository" "docker" {
   name        = "docker"
   description = "Dockerfile collection"
@@ -68,6 +92,14 @@ resource "github_repository" "docker" {
   allow_rebase_merge = false
 }
 
+resource "github_branch_protection" "docker" {
+  repository_id = github_repository.docker.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
+
 resource "github_repository" "packer" {
   name = "packer"
 
@@ -79,6 +111,14 @@ resource "github_repository" "packer" {
 
   allow_merge_commit = false
   allow_rebase_merge = false
+}
+
+resource "github_branch_protection" "packer" {
+  repository_id = github_repository.packer.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
 }
 
 resource "github_repository" "observability" {
