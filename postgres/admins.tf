@@ -18,3 +18,29 @@ resource "vault_database_secret_backend_role" "admin" {
     "GRANT admins TO \"{{name}}\";"
   ]
 }
+
+resource "postgresql_role" "nahsi" {
+  name  = "nahsi"
+  login = true
+  lifecycle {
+    ignore_changes = [
+      password
+    ]
+  }
+}
+
+resource "postgresql_grant_role" "nahsi" {
+  role       = postgresql_role.nahsi.name
+  grant_role = "pg_read_all_data"
+}
+
+resource "vault_database_secret_backend_static_role" "nahsi" {
+  backend  = vault_mount.database.path
+  name     = "nahsi"
+  db_name  = vault_database_secret_backend_connection.postgres.name
+  username = "nahsi"
+  rotation_statements = [
+    "ALTER USER \"{{name}}\" WITH PASSWORD '{{password}}';"
+  ]
+  rotation_period = "86400"
+}
