@@ -1,18 +1,14 @@
 provider "vault" {
-  address = "http://vault.service.consul:8200"
-}
-
-data "vault_generic_secret" "postgres" {
-  path = "secret/postgres/superuser"
+  address = "https://vault.service.consul"
 }
 
 provider "postgresql" {
   host            = "master.postgres.service.consul"
   port            = 5432
   database        = "postgres"
-  username        = data.vault_generic_secret.postgres.data["username"]
-  password        = data.vault_generic_secret.postgres.data["password"]
-  superuser       = true
+  username        = var.postgres_username
+  password        = var.postgres_password
+  superuser       = false
   sslmode         = "disable"
   connect_timeout = 15
 }

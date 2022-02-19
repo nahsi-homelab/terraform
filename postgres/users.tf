@@ -1,31 +1,9 @@
-# dendrite
-resource "postgresql_role" "dendrite" {
-  name  = "dendrite"
-  login = true
-  lifecycle {
-    ignore_changes = [
-      password
-    ]
-  }
-}
-
-resource "postgresql_database" "dendrite" {
-  name  = "dendrite"
-  owner = "dendrite"
-}
-
-resource "vault_database_secret_backend_static_role" "dendrite" {
-  backend  = vault_mount.database.path
-  name     = "dendrite"
-  db_name  = vault_database_secret_backend_connection.postgres.name
-  username = "dendrite"
-  rotation_statements = [
-    "ALTER USER \"{{name}}\" WITH PASSWORD '{{password}}';"
-  ]
-  rotation_period = "86400"
-}
-
 # sftpgo
+resource "postgresql_database" "sftpgo" {
+  name  = "sftpgo"
+  owner = "sftpgo"
+}
+
 resource "postgresql_role" "sftpgo" {
   name  = "sftpgo"
   login = true
@@ -34,11 +12,7 @@ resource "postgresql_role" "sftpgo" {
       password
     ]
   }
-}
-
-resource "postgresql_database" "sftpgo" {
-  name  = "sftpgo"
-  owner = "sftpgo"
+  depends_on = [postgresql_database.sftpgo]
 }
 
 resource "vault_database_secret_backend_static_role" "sftpgo" {
@@ -53,6 +27,11 @@ resource "vault_database_secret_backend_static_role" "sftpgo" {
 }
 
 # roundcube
+resource "postgresql_database" "roundcube" {
+  name  = "roundcube"
+  owner = "roundcube"
+}
+
 resource "postgresql_role" "roundcube" {
   name  = "roundcube"
   login = true
@@ -61,11 +40,7 @@ resource "postgresql_role" "roundcube" {
       password
     ]
   }
-}
-
-resource "postgresql_database" "roundcube" {
-  name  = "roundcube"
-  owner = "roundcube"
+  depends_on = [postgresql_database.roundcube]
 }
 
 resource "vault_database_secret_backend_static_role" "roundcube" {

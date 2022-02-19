@@ -1,7 +1,7 @@
 terraform {
   backend "consul" {
-    address = "consul.service.consul:8500"
-    scheme  = "http"
+    address = "consul.service.consul"
+    scheme  = "https"
     path    = "terraform/postgres"
   }
 
