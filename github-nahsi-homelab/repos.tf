@@ -19,10 +19,6 @@ resource "github_branch_protection" "terraform" {
   pattern          = "master"
   enforce_admins   = true
   allows_deletions = true
-
-  required_pull_request_reviews {
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_repository" "nomad" {
@@ -51,10 +47,6 @@ resource "github_branch_protection" "nomad" {
   pattern          = "master"
   enforce_admins   = true
   allows_deletions = true
-
-  required_pull_request_reviews {
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_repository" "ansible" {
@@ -84,10 +76,6 @@ resource "github_branch_protection" "ansible" {
   pattern          = "master"
   enforce_admins   = true
   allows_deletions = true
-
-  required_pull_request_reviews {
-    required_approving_review_count = 0
-  }
 }
 
 resource "github_repository" "docker" {
