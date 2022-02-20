@@ -10,6 +10,7 @@ resource "vault_database_secret_backend_connection" "postgres" {
     "admin",
     "nahsi",
     "grafana",
+    "postgres-exporter",
     "sftpgo",
     "roundcube",
     "home-assistant"
