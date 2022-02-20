@@ -15,7 +15,7 @@ resource "vault_database_secret_backend_role" "admin" {
 
   creation_statements = [
     "CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}';",
-    "GRANT admins TO \"{{name}}\";"
+    "GRANT admins,pg_read_all_data TO \"{{name}}\";"
   ]
 }
 
