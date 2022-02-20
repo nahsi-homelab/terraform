@@ -3,7 +3,7 @@ path "secret/data/certificate"
   capabilities = ["read"]
 }
 
-path "secret/data/traefik/pilot"
+path "secret/data/traefik/pilot/ingress"
 {
   capabilities = ["read"]
 }
