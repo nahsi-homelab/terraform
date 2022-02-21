@@ -16,6 +16,16 @@ path "sys/auth"
   capabilities = ["read"]
 }
 
+# Manage userpass auth methods
+path "auth/userpass/*" {
+  capabilities = ["create", "read", "update", "delete"]
+}
+
+# Manage github auth methods
+path "auth/github/*" {
+  capabilities = ["create", "read", "update", "delete"]
+}
+
 # Create and manage ACL policies
 path "sys/policies/acl/*"
 {
@@ -71,16 +81,35 @@ path "pki/*"
 }
 
 # Manage leases
-path "sys/leases/*" {
-  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+path "sys/leases/*"
+{
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+path "sys/leases/lookup"
+{
+  capabilities = ["list", "sudo"]
+}
+
+# Manage groups
+path "sys/groups/*"
+{
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+# Manage entites and groups
+path "identity/*"
+{
+  capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 # Configure the postgres secrets engine and create roles
 path "postgres/*" {
-  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
 # Configure the mongo secrets engine and create roles
 path "mongo/*" {
-  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
+
