@@ -103,6 +103,11 @@ path "identity/*"
   capabilities = ["create", "read", "update", "delete", "list"]
 }
 
+# Configure the mariadb secrets engine and create roles
+path "mariadb/*" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
 # Configure the postgres secrets engine and create roles
 path "postgres/*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
