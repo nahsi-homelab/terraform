@@ -7,3 +7,8 @@ path "postgres/creds/sftpgo"
 {
   capabilities = ["read"]
 }
+
+path "secret/data/sftpgo/passphrase"
+{
+  capabilities = ["read"]
+}
