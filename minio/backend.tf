@@ -1,13 +1,13 @@
 terraform {
   backend "consul" {
     scheme = "http"
-    path   = "terraform-state/minio"
+    path   = "terraform/minio"
   }
 
   required_providers {
     minio = {
       source  = "aminueza/minio"
-      version = "1.2.0"
+      version = "1.4.0"
     }
   }
 }

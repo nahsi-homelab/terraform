@@ -1,5 +1,5 @@
 provider "vault" {
-  address = "http://active.vault.service.consul:8200"
+  address = "https://vault.service.consul"
 }
 
 data "vault_generic_secret" "minio" {
