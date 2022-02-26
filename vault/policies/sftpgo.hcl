@@ -12,3 +12,8 @@ path "secret/data/sftpgo/passphrase"
 {
   capabilities = ["read"]
 }
+
+path "secret/data/sftpgo/ssh"
+{
+  capabilities = ["read"]
+}
