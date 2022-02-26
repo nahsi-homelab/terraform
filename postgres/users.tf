@@ -18,34 +18,6 @@ resource "vault_database_secret_backend_role" "postgres-exporter" {
   ]
 }
 
-# sftpgo
-resource "postgresql_database" "sftpgo" {
-  name  = "sftpgo"
-  owner = "sftpgo"
-}
-
-resource "postgresql_role" "sftpgo" {
-  name  = "sftpgo"
-  login = true
-  lifecycle {
-    ignore_changes = [
-      password
-    ]
-  }
-  depends_on = [postgresql_database.sftpgo]
-}
-
-resource "vault_database_secret_backend_static_role" "sftpgo" {
-  backend  = vault_mount.database.path
-  name     = "sftpgo"
-  db_name  = vault_database_secret_backend_connection.postgres.name
-  username = "sftpgo"
-  rotation_statements = [
-    "ALTER USER \"{{name}}\" WITH PASSWORD '{{password}}';"
-  ]
-  rotation_period = "86400"
-}
-
 # roundcube
 resource "postgresql_database" "roundcube" {
   name  = "roundcube"
