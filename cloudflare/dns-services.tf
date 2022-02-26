@@ -60,3 +60,19 @@ resource "cloudflare_record" "resume" {
   value   = "nahsi.github.io"
   type    = "CNAME"
 }
+
+resource "cloudflare_record" "files-syria" {
+  zone_id = var.cloudflare_zone_id
+  name    = "files"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "files-asia" {
+  zone_id = var.cloudflare_zone_id
+  name    = "files"
+  value   = var.asia
+  type    = "A"
+  ttl     = 1
+}
