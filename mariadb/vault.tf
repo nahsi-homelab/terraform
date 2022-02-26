@@ -32,11 +32,8 @@ resource "vault_database_secret_backend_connection" "mariadb" {
     "SET PASSWORD FOR 'vault'@'${mysql_user.vault.host}' = PASSWORD('{{password}}');",
   ]
 
-  data = {
-    username = "vault"
-  }
-
   mysql {
     connection_url = "{{username}}:{{password}}@tcp(mariadb.service.consul:3306)/"
+    username       = "vault"
   }
 }

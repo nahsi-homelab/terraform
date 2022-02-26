@@ -1,5 +1,7 @@
 resource "mysql_database" "shinobi" {
-  name = "shinobi"
+  name                  = "ccio"
+  default_character_set = "utf8"
+  default_collation     = "utf8_general_ci"
 }
 
 resource "mysql_user" "shinobi" {
