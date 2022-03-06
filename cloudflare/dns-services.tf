@@ -80,7 +80,7 @@ resource "cloudflare_record" "files-asia" {
 resource "cloudflare_record" "vault" {
   zone_id = var.cloudflare_zone_id
   name    = "vault"
-  value   = var.asia
+  value   = var.syria
   type    = "A"
   ttl     = 1
 }
