@@ -76,3 +76,11 @@ resource "cloudflare_record" "files-asia" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "vault" {
+  zone_id = var.cloudflare_zone_id
+  name    = "vault"
+  value   = var.asia
+  type    = "A"
+  ttl     = 1
+}
