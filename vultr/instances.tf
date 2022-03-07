@@ -1,7 +1,7 @@
 resource "vultr_instance" "heraclea" {
   label    = "heraclea"
   plan     = "vc2-1c-2gb"
-  region   = "fra"
+  region   = "ams"
   os_id    = "517" # Ubuntu 21.10
 
   ssh_key_ids = [
@@ -10,19 +10,6 @@ resource "vultr_instance" "heraclea" {
   ]
 
   firewall_group_id = vultr_firewall_group.main.id
-}
-
-resource "vultr_reserved_ip" "heraclea" {
-  label       = "heraclea"
-  region      = "fra"
-  ip_type     = "v4"
-  instance_id = vultr_instance.heraclea.id
-}
-
-resource "vultr_reverse_ipv4" "heraclea" {
-  instance_id = vultr_instance.heraclea.id
-  ip          = vultr_instance.heraclea.main_ip
-  reverse     = "pontus.nahsi.dev"
 }
 
 resource "cloudflare_record" "pontus" {
