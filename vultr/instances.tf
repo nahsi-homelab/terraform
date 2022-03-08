@@ -1,8 +1,8 @@
 resource "vultr_instance" "heraclea" {
-  label    = "heraclea"
-  plan     = "vc2-1c-2gb"
-  region   = "ams"
-  os_id    = "517" # Ubuntu 21.10
+  label  = "heraclea"
+  plan   = "vc2-1c-2gb"
+  region = "ams"
+  os_id  = "517" # Ubuntu 21.10
 
   ssh_key_ids = [
     vultr_ssh_key.pergamon.id,

@@ -19,5 +19,15 @@ resource "vultr_firewall_rule" "wireguard" {
   subnet            = "0.0.0.0"
   subnet_size       = 0
   port              = "59795"
-  notes             = "ssh"
+  notes             = "wireguard"
+}
+
+resource "vultr_firewall_rule" "tailscale" {
+  firewall_group_id = vultr_firewall_group.main.id
+  protocol          = "udp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "41641"
+  notes             = "tailscale"
 }
