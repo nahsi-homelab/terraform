@@ -1,5 +1,5 @@
 provider "vault" {
-  address = "http://vault.service.consul:8200"
+  address = "https://vault.service.consul"
 }
 
 resource "vault_mount" "secret" {
