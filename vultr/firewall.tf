@@ -1,9 +1,9 @@
-resource "vultr_firewall_group" "main" {
-  description = "main firewall"
+resource "vultr_firewall_group" "instances" {
+  description = "instances"
 }
 
 resource "vultr_firewall_rule" "ssh" {
-  firewall_group_id = vultr_firewall_group.main.id
+  firewall_group_id = vultr_firewall_group.instances.id
   protocol          = "tcp"
   ip_type           = "v4"
   subnet            = "0.0.0.0"
@@ -12,22 +12,32 @@ resource "vultr_firewall_rule" "ssh" {
   notes             = "ssh"
 }
 
-resource "vultr_firewall_rule" "wireguard" {
-  firewall_group_id = vultr_firewall_group.main.id
+resource "vultr_firewall_rule" "innernet" {
+  firewall_group_id = vultr_firewall_group.instances.id
   protocol          = "udp"
   ip_type           = "v4"
   subnet            = "0.0.0.0"
   subnet_size       = 0
-  port              = "59795"
-  notes             = "wireguard"
+  port              = "50820"
+  notes             = "innernet"
 }
 
-resource "vultr_firewall_rule" "tailscale" {
-  firewall_group_id = vultr_firewall_group.main.id
+resource "vultr_firewall_rule" "wg-relay" {
+  firewall_group_id = vultr_firewall_group.instances.id
   protocol          = "udp"
   ip_type           = "v4"
   subnet            = "0.0.0.0"
   subnet_size       = 0
-  port              = "41641"
-  notes             = "tailscale"
+  port              = "51820"
+  notes             = "wireguard relay"
+}
+
+resource "vultr_firewall_rule" "wg-common" {
+  firewall_group_id = vultr_firewall_group.instances.id
+  protocol          = "udp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "52820"
+  notes             = "wireguard common"
 }
