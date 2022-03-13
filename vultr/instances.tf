@@ -17,7 +17,8 @@ resource "vultr_instance" "pontus" {
   ]
 
   private_network_ids = [
-    vultr_private_network.pontus.id
+    vultr_private_network.private.id,
+    vultr_private_network.public.id,
   ]
 
   firewall_group_id = vultr_firewall_group.instances.id

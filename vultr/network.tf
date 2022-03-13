@@ -5,10 +5,17 @@ locals {
   ])
 }
 
-resource "vultr_private_network" "pontus" {
-  description    = "pontus"
+resource "vultr_private_network" "private" {
+  description    = "pontus private"
   region         = "ams"
   v4_subnet      = "10.3.10.0"
+  v4_subnet_mask = "24"
+}
+
+resource "vultr_private_network" "public" {
+  description    = "pontus public"
+  region         = "ams"
+  v4_subnet      = "10.3.100.0"
   v4_subnet_mask = "24"
 }
 
@@ -20,7 +27,7 @@ resource "vultr_load_balancer" "ingress" {
   attached_instances = [
     for instance in vultr_instance.pontus : instance.id
   ]
-  private_network = vultr_private_network.pontus.id
+  private_network = vultr_private_network.private.id
 
   dynamic "forwarding_rules" {
     for_each = local.ports
