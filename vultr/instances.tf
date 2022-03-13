@@ -32,3 +32,13 @@ resource "cloudflare_record" "pontus" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "wg" {
+  for_each = local.instances
+
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  name    = "wireguard.pontus"
+  value   = vultr_instance.pontus[each.key].main_ip
+  type    = "A"
+  ttl     = 1
+}
