@@ -2,6 +2,13 @@ locals {
   instances = toset(["heraclea", "nicomedia"])
 }
 
+resource "vultr_private_network" "private" {
+  description    = "pontus private"
+  region         = "ams"
+  v4_subnet      = "10.3.10.0"
+  v4_subnet_mask = "24"
+}
+
 resource "vultr_instance" "pontus" {
   for_each = local.instances
 
@@ -18,13 +25,12 @@ resource "vultr_instance" "pontus" {
 
   private_network_ids = [
     vultr_private_network.private.id,
-    vultr_private_network.public.id,
   ]
 
   firewall_group_id = vultr_firewall_group.instances.id
 }
 
-resource "cloudflare_record" "pontus" {
+resource "cloudflare_record" "instances" {
   for_each = local.instances
 
   zone_id = data.cloudflare_zones.domain.zones[0].id
@@ -34,11 +40,11 @@ resource "cloudflare_record" "pontus" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "wg" {
+resource "cloudflare_record" "pontus" {
   for_each = local.instances
 
   zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = "wireguard.pontus"
+  name    = "pontus"
   value   = vultr_instance.pontus[each.key].main_ip
   type    = "A"
   ttl     = 1

@@ -12,14 +12,24 @@ resource "vultr_firewall_rule" "ssh" {
   notes             = "ssh"
 }
 
-resource "vultr_firewall_rule" "innernet" {
+resource "vultr_firewall_rule" "http" {
   firewall_group_id = vultr_firewall_group.instances.id
-  protocol          = "udp"
+  protocol          = "tcp"
   ip_type           = "v4"
   subnet            = "0.0.0.0"
   subnet_size       = 0
-  port              = "50820"
-  notes             = "innernet"
+  port              = "80"
+  notes             = "http"
+}
+
+resource "vultr_firewall_rule" "https" {
+  firewall_group_id = vultr_firewall_group.instances.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "443"
+  notes             = "https"
 }
 
 resource "vultr_firewall_rule" "wg-relay" {
