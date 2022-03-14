@@ -2,7 +2,7 @@ terraform {
   backend "consul" {
     address = "consul.service.consul"
     scheme  = "https"
-    path    = "terraform/vultr/pontus"
+    path    = "terraform/vultr"
   }
 
   required_providers {
@@ -19,4 +19,8 @@ data "cloudflare_zones" "domain" {
   filter {
     name = "nahsi.dev"
   }
+}
+
+provider "nomad" {
+  address = "https://nomad.service.consul"
 }
