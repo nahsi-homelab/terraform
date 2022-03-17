@@ -2,8 +2,8 @@ locals {
   instances = toset(["heraclea", "nicomedia"])
 }
 
-resource "vultr_private_network" "private" {
-  description    = "pontus private"
+resource "vultr_private_network" "private-ams" {
+  description    = "ams private"
   region         = "ams"
   v4_subnet      = "10.3.10.0"
   v4_subnet_mask = "24"
@@ -24,7 +24,7 @@ resource "vultr_instance" "pontus" {
   ]
 
   private_network_ids = [
-    vultr_private_network.private.id,
+    vultr_private_network.private-ams.id,
   ]
 
   firewall_group_id = vultr_firewall_group.instances.id

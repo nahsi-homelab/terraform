@@ -1,3 +1,10 @@
+resource "vultr_private_network" "private-fra" {
+  description    = "fra private"
+  region         = "fra"
+  v4_subnet      = "10.4.10.0"
+  v4_subnet_mask = "24"
+}
+
 resource "vultr_instance" "chalcedon" {
   hostname = "chalcedon"
   label    = "chalcedon"
@@ -8,6 +15,10 @@ resource "vultr_instance" "chalcedon" {
   ssh_key_ids = [
     vultr_ssh_key.pergamon.id,
     vultr_ssh_key.miletos.id,
+  ]
+
+  private_network_ids = [
+    vultr_private_network.private-fra.id,
   ]
 
   firewall_group_id = vultr_firewall_group.instances.id
