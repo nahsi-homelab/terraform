@@ -40,7 +40,7 @@ resource "cloudflare_record" "instances" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "pontus" {
+resource "cloudflare_record" "pontus-ams" {
   for_each = local.instances
 
   zone_id = data.cloudflare_zones.domain.zones[0].id
