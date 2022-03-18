@@ -2,14 +2,15 @@ terraform {
   backend "consul" {
     address = "consul.service.consul:443"
     scheme  = "https"
-    path    = "terraform/cloudflare"
+    path    = "terraform/backblaze"
   }
 
+  required_version = ">= 1.0.0"
   required_providers {
-    cloudflare = {
-      source = "cloudflare/cloudflare"
+    b2 = {
+      source = "Backblaze/b2"
     }
   }
 }
 
-provider "cloudflare" {}
+provider "b2" {}
