@@ -7,13 +7,8 @@ resource "minio_ilm_policy" "bucket-lifecycle-rules" {
   bucket = minio_s3_bucket.cctv.bucket
 
   rule {
-    id         = "expire-14d"
-    expiration = "14d"
-  }
-
-  rule {
-    id         = "expire-1m"
-    expiration = "1m"
+    id         = "expire-31d"
+    expiration = "31d"
   }
 }
 
