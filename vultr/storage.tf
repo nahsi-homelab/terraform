@@ -4,6 +4,12 @@ data "nomad_plugin" "vultr" {
 }
 
 resource "vultr_block_storage" "postgres" {
+  lifecycle {
+    ignore_changes = [
+      attached_to_instance,
+    ]
+  }
+
   size_gb = 10
   label   = "postgres"
   live    = true
@@ -11,10 +17,9 @@ resource "vultr_block_storage" "postgres" {
 }
 
 resource "nomad_volume" "postgres" {
-  depends_on  = [data.nomad_plugin.vultr]
   type        = "csi"
   namespace   = "infra"
-  plugin_id   = "vultr-ams"
+  plugin_id   = data.nomad_plugin.vultr.id
   volume_id   = "postgres"
   name        = "postgres"
   external_id = vultr_block_storage.postgres.id
