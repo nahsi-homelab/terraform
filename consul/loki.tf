@@ -29,3 +29,19 @@ resource "consul_config_entry" "loki-distributor" {
     ]
   })
 }
+
+resource "consul_config_entry" "loki-query-frontend" {
+  name = "loki-query-frontend"
+  kind = "service-intentions"
+
+  config_json = jsonencode({
+    Sources = [
+      {
+        Action     = "allow"
+        Name       = "grafana-connect"
+        Precedence = 9
+        Type       = "consul"
+      },
+    ]
+  })
+}
