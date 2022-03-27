@@ -1,20 +1,4 @@
-resource "consul_config_entry" "default-intentions" {
-  name = "*"
-  kind = "service-intentions"
-
-  config_json = jsonencode({
-    Sources = [
-      {
-        Action     = "deny"
-        Name       = "*"
-        Precedence = 5
-        Type       = "consul"
-      }
-    ]
-  })
-}
-
-resource "consul_config_entry" "victoria-metrics-intentions" {
+resource "consul_config_entry" "victoria-metrics" {
   name = "victoria-metrics"
   kind = "service-intentions"
 
