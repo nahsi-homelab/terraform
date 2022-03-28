@@ -4,7 +4,6 @@ resource "vault_database_secret_backend_role" "exporter" {
   db_name = vault_database_secret_backend_connection.mongo.name
   creation_statements = [
     jsonencode({
-      db = "admin"
       roles = [
         {
           db      = "admin"
@@ -14,7 +13,7 @@ resource "vault_database_secret_backend_role" "exporter" {
           role = "read"
           db   = "local"
         }
-      ]
+      ],
     })
   ]
   default_ttl = "259200"  # 3d
@@ -28,7 +27,6 @@ resource "vault_database_secret_backend_role" "wildduck" {
   creation_statements = [
     jsonencode({
       db      = "wildduck"
-      actions = ["listCollection"]
       roles = [
         {
           db   = "wildduck"
