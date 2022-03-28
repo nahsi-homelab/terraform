@@ -4,6 +4,7 @@ resource "vault_database_secret_backend_role" "exporter" {
   db_name = vault_database_secret_backend_connection.mongo.name
   creation_statements = [
     jsonencode({
+      db = "admin"
       roles = [
         {
           db      = "admin"
