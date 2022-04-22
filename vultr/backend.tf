@@ -20,7 +20,3 @@ data "cloudflare_zones" "domain" {
     name = "nahsi.dev"
   }
 }
-
-provider "nomad" {
-  address = "https://nomad.service.consul"
-}
