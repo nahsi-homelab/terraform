@@ -1,19 +1,19 @@
-resource "postgresql_role" "seaweefs" {
-  name    = "seaweefs"
+resource "postgresql_role" "seaweedfs" {
+  name    = "seaweedfs"
   inherit = true
 }
 
-resource "postgresql_database" "seaweefs" {
-  name  = "seaweefs"
-  owner = postgresql_role.seaweefs.name
+resource "postgresql_database" "seaweedfs" {
+  name  = "seaweedfs"
+  owner = postgresql_role.seaweedfs.name
 }
 
-resource "postgresql_default_privileges" "seaweefs" {
-  role     = postgresql_role.seaweefs.name
-  database = postgresql_database.seaweefs.name
+resource "postgresql_default_privileges" "seaweedfs" {
+  role     = postgresql_role.seaweedfs.name
+  database = postgresql_database.seaweedfs.name
   schema   = "public"
 
-  owner       = "seaweefs"
+  owner       = "seaweedfs"
   object_type = "table"
   privileges = [
     "SELECT",
@@ -24,9 +24,9 @@ resource "postgresql_default_privileges" "seaweefs" {
   ]
 }
 
-resource "vault_database_secret_backend_role" "seaweefs" {
+resource "vault_database_secret_backend_role" "seaweedfs" {
   backend = vault_mount.database.path
-  name    = "seaweefs"
+  name    = "seaweedfs"
   db_name = vault_database_secret_backend_connection.postgres.name
 
   default_ttl = 604800  # 7d
@@ -34,8 +34,8 @@ resource "vault_database_secret_backend_role" "seaweefs" {
 
   creation_statements = [
     "CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}';",
-    "GRANT seaweefs TO \"{{name}}\";",
-    "ALTER ROLE \"{{name}}\" SET ROLE seaweefs;",
+    "GRANT seaweedfs TO \"{{name}}\";",
+    "ALTER ROLE \"{{name}}\" SET ROLE seaweedfs;",
   ]
 
   revocation_statements = [
