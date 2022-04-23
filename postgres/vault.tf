@@ -13,7 +13,8 @@ resource "vault_database_secret_backend_connection" "postgres" {
     "postgres-exporter",
     "sftpgo",
     "roundcube",
-    "home-assistant"
+    "home-assistant",
+    "seaweedfs",
   ]
 
   postgresql {
