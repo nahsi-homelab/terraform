@@ -83,3 +83,30 @@ resource "nomad_external_volume" "music" {
     ]
   }
 }
+
+resource "nomad_external_volume" "filerun" {
+  type      = "csi"
+  plugin_id = data.nomad_plugin.seaweedfs.id
+  volume_id = "filerun"
+  name      = "filerun"
+  namespace = "services"
+
+  capacity_min = "1Gib"
+  capacity_max = "1Gib"
+
+  capability {
+    access_mode     = "single-node-writer"
+    attachment_mode = "file-system"
+  }
+
+  parameters = {
+    replication = "010"
+    disk_type   = "ssd"
+  }
+
+  mount_options {
+    mount_flags = [
+      "rw",
+    ]
+  }
+}

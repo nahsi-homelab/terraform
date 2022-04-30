@@ -60,3 +60,11 @@ resource "cloudflare_record" "transmission-taisto" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "filerun" {
+  zone_id = var.cloudflare_zone_id
+  name    = "filerun"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
