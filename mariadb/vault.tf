@@ -24,7 +24,7 @@ resource "vault_database_secret_backend_connection" "mariadb" {
   name        = "mariadb"
   plugin_name = "mysql-database-plugin"
   allowed_roles = [
-    "shinobi",
+    "filerun",
     "exporter",
   ]
 
