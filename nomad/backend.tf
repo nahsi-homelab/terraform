@@ -1,6 +1,11 @@
 terraform {
   backend "consul" {
-    scheme = "http"
-    path   = "terraform/nomad"
+    scheme  = "https"
+    address = "consul.service.consul"
+    path    = "terraform/nomad"
   }
+}
+
+provider "nomad" {
+  address = "https://nomad.service.consul"
 }
