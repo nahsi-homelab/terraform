@@ -1,4 +1,4 @@
-resource "cloudflare_record" "minio-syria" {
+resource "cloudflare_record" "minio" {
   zone_id = var.cloudflare_zone_id
   name    = "minio"
   value   = var.syria
@@ -6,26 +6,10 @@ resource "cloudflare_record" "minio-syria" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "minio-asia" {
-  zone_id = var.cloudflare_zone_id
-  name    = "minio"
-  value   = var.asia
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "s3-syria" {
+resource "cloudflare_record" "s3" {
   zone_id = var.cloudflare_zone_id
   name    = "s3"
   value   = var.syria
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "s3-asia" {
-  zone_id = var.cloudflare_zone_id
-  name    = "s3"
-  value   = var.asia
   type    = "A"
   ttl     = 1
 }

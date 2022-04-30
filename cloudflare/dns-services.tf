@@ -1,23 +1,7 @@
-resource "cloudflare_record" "main-syria" {
+resource "cloudflare_record" "dashboard" {
   zone_id = var.cloudflare_zone_id
   name    = "nahsi.dev"
   value   = var.syria
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "blog-syria" {
-  zone_id = var.cloudflare_zone_id
-  name    = "blog"
-  value   = var.syria
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "blog-asia" {
-  zone_id = var.cloudflare_zone_id
-  name    = "blog"
-  value   = var.asia
   type    = "A"
   ttl     = 1
 }
@@ -38,18 +22,10 @@ resource "cloudflare_record" "audioserve" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "llpsi-syria" {
+resource "cloudflare_record" "llpsi" {
   zone_id = var.cloudflare_zone_id
   name    = "llpsi"
   value   = var.syria
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "llpsi-asia" {
-  zone_id = var.cloudflare_zone_id
-  name    = "llpsi"
-  value   = var.asia
   type    = "A"
   ttl     = 1
 }
@@ -61,18 +37,10 @@ resource "cloudflare_record" "resume" {
   type    = "CNAME"
 }
 
-resource "cloudflare_record" "files-syria" {
+resource "cloudflare_record" "files" {
   zone_id = var.cloudflare_zone_id
   name    = "files"
   value   = var.syria
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "files-asia" {
-  zone_id = var.cloudflare_zone_id
-  name    = "files"
-  value   = var.asia
   type    = "A"
   ttl     = 1
 }

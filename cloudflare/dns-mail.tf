@@ -1,25 +1,16 @@
-resource "cloudflare_record" "mx-syria" {
+resource "cloudflare_record" "mx" {
   zone_id  = var.cloudflare_zone_id
   name     = "nahsi.dev"
-  value    = "syria.nahsi.dev"
+  value    = "nahsi.dev"
   type     = "MX"
   priority = "10"
-  ttl      = 3600
-}
-
-resource "cloudflare_record" "mx-asia" {
-  zone_id  = var.cloudflare_zone_id
-  name     = "nahsi.dev"
-  value    = "asia.nahsi.dev"
-  type     = "MX"
-  priority = "20"
   ttl      = 3600
 }
 
 resource "cloudflare_record" "spf" {
   zone_id = var.cloudflare_zone_id
   name    = "nahsi.dev"
-  value   = "v=spf1 a:syria.nahsi.dev a:asia.nahsi.dev ip4:91.245.37.33 ip4:81.23.150.126 -all"
+  value   = "v=spf1 a:nahsi.dev ip4:91.245.37.33 -all"
   type    = "TXT"
   ttl     = 3600
 }
@@ -40,18 +31,10 @@ resource "cloudflare_record" "dmarc" {
   ttl     = 3600
 }
 
-resource "cloudflare_record" "mail-syria" {
+resource "cloudflare_record" "mail" {
   zone_id = var.cloudflare_zone_id
   name    = "mail"
   value   = var.syria
-  type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "mail-asia" {
-  zone_id = var.cloudflare_zone_id
-  name    = "mail"
-  value   = var.asia
   type    = "A"
   ttl     = 1
 }

@@ -9,7 +9,3 @@ variable "syria" {
 variable "asia" {
   type = string
 }
-
-variable "pontus" {
-  type = string
-}
