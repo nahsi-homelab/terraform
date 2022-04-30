@@ -52,3 +52,11 @@ resource "cloudflare_record" "vault" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "transmission" {
+  zone_id = var.cloudflare_zone_id
+  name    = "transmission"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
