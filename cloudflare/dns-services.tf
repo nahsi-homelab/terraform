@@ -68,3 +68,11 @@ resource "cloudflare_record" "filerun" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "calibre" {
+  zone_id = var.cloudflare_zone_id
+  name    = "calibre"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
