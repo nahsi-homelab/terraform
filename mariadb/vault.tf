@@ -6,6 +6,10 @@ resource "vault_mount" "database" {
 resource "mysql_user" "vault" {
   user = "vault"
   host = "%"
+
+  lifecycle {
+    ignore_changes = ["plaintext_password"]
+  }
 }
 
 resource "mysql_grant" "vault" {
@@ -33,7 +37,8 @@ resource "vault_database_secret_backend_connection" "mariadb" {
   ]
 
   mysql {
-    connection_url = "{{username}}:{{password}}@tcp(mariadb.service.consul:3306)/"
-    username       = "vault"
+    connection_url       = "{{username}}:{{password}}@tcp(mariadb.service.consul:3306)/"
+    max_open_connections = "10"
+    username             = "vault"
   }
 }
