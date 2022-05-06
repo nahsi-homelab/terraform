@@ -32,32 +32,6 @@ resource "nomad_external_volume" "polaris" {
   }
 }
 
-resource "nomad_external_volume" "mariadb" {
-  type      = "csi"
-  plugin_id = data.nomad_plugin.seaweedfs.id
-  volume_id = "mariadb"
-  name      = "mariadb"
-  namespace = "infra"
-
-  capacity_min = "10Gib"
-  capacity_max = "20Gib"
-
-  capability {
-    access_mode     = "single-node-writer"
-    attachment_mode = "file-system"
-  }
-
-  parameters = {
-    disk_type = "ssd"
-  }
-
-  mount_options {
-    mount_flags = [
-      "rw",
-    ]
-  }
-}
-
 resource "nomad_external_volume" "music" {
   type      = "csi"
   plugin_id = data.nomad_plugin.seaweedfs.id
