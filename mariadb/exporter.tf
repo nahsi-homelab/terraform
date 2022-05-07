@@ -1,18 +1,27 @@
-resource "vault_database_secret_backend_role" "exporter" {
-  backend = vault_mount.database.path
-  name    = "exporter"
-  db_name = vault_database_secret_backend_connection.mariadb.name
+resource "mysql_user" "exporter" {
+  user = "exporter"
+  host = "%"
+}
 
-  default_ttl = 86400  # 1d
-  max_ttl     = 604800 # 7d
-
-  creation_statements = [
-    "CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';",
-    "GRANT SLAVE MONITOR, PROCESS, REPLICATION CLIENT, SELECT ON *.* TO '{{name}}'@'%';",
-    "FLUSH PRIVILEGES;",
+resource "mysql_grant" "exporter" {
+  user     = mysql_user.exporter.user
+  host     = mysql_user.exporter.host
+  database = "*"
+  privileges = [
+    "SLAVE MONITOR",
+    "BINLOG MONITOR",
+    "PROCESS",
+    "SELECT",
   ]
+}
 
-  revocation_statements = [
-    "DROP USER IF EXISTS '{{name}}';",
+resource "vault_database_secret_backend_static_role" "exporter" {
+  backend  = vault_mount.database.path
+  name     = "exporter"
+  db_name  = vault_database_secret_backend_connection.mariadb.name
+  username = "exporter"
+  rotation_statements = [
+    "SET PASSWORD FOR '{{name}}'@'${mysql_user.exporter.host}' = PASSWORD('{{password}}');"
   ]
+  rotation_period = 86400 # 7d
 }

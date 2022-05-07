@@ -1,4 +1,4 @@
-path "mariadb/creds/exporter"
+path "mariadb/static-creds/exporter"
 {
   capabilities = ["read"]
 }

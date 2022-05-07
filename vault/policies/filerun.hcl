@@ -3,7 +3,7 @@ path "secret/data/filerun/*"
   capabilities = ["read"]
 }
 
-path "mariadb/static-creds/filerun"
+path "mariadb/creds/filerun"
 {
   capabilities = ["read"]
 }

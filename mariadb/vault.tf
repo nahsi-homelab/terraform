@@ -4,11 +4,12 @@ resource "vault_mount" "database" {
 }
 
 resource "mysql_user" "vault" {
-  user = "vault"
-  host = "%"
+  user               = "vault"
+  host               = "%"
+  plaintext_password = "root"
 
   lifecycle {
-    ignore_changes = ["plaintext_password"]
+    ignore_changes = [plaintext_password]
   }
 }
 
@@ -37,8 +38,16 @@ resource "vault_database_secret_backend_connection" "mariadb" {
   ]
 
   mysql {
-    connection_url       = "{{username}}:{{password}}@tcp(mariadb.service.consul:3306)/"
+    connection_url       = "{{username}}:{{password}}@tcp(mariadb.service.consul:3006)/"
     max_open_connections = "10"
     username             = "vault"
+    password             = "root"
+
+    tls_certificate_key = format(
+      "%s\n%s",
+      vault_pki_secret_backend_cert.vault.private_key,
+      vault_pki_secret_backend_cert.vault.certificate,
+    )
+    tls_ca = vault_pki_secret_backend_cert.vault.issuing_ca
   }
 }
