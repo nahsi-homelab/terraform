@@ -4,21 +4,25 @@ resource "mysql_database" "filerun" {
   default_collation     = "utf8mb3_general_ci"
 }
 
-resource "vault_database_secret_backend_role" "rilerun" {
-  backend = vault_mount.database.path
-  name    = "filerun"
-  db_name = vault_database_secret_backend_connection.mariadb.name
+resource "mysql_user" "filerun" {
+  user = "filerun"
+  host = "%"
+}
 
-  default_ttl = 604800  # 7d
-  max_ttl     = 2678400 # 31d
+resource "mysql_grant" "filerun" {
+  user       = mysql_user.filerun.user
+  host       = mysql_user.filerun.host
+  database   = mysql_database.filerun.name
+  privileges = ["ALL PRIVILEGES"]
+}
 
-  creation_statements = [
-    "CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';",
-    "GRANT ALL PRIVILEGES ON filerun.* TO '{{name}}'@'%';",
-    "FLUSH PRIVILEGES;",
+resource "vault_database_secret_backend_static_role" "filerun" {
+  backend  = vault_mount.database.path
+  name     = "filerun"
+  db_name  = vault_database_secret_backend_connection.mariadb.name
+  username = "filerun"
+  rotation_statements = [
+    "SET PASSWORD FOR '{{name}}'@'${mysql_user.filerun.host}' = PASSWORD('{{password}}');"
   ]
-
-  revocation_statements = [
-    "DROP USER IF EXISTS '{{name}}';",
-  ]
+  rotation_period = 604800 # 7d
 }

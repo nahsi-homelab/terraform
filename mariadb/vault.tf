@@ -41,7 +41,6 @@ resource "vault_database_secret_backend_connection" "mariadb" {
     connection_url       = "{{username}}:{{password}}@tcp(mariadb.service.consul:3006)/"
     max_open_connections = "10"
     username             = "vault"
-    password             = "root"
 
     tls_certificate_key = format(
       "%s\n%s",
