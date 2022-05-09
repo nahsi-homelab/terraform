@@ -17,3 +17,8 @@ path "secret/data/prometheus/basicauth/grafana"
 {
   capabilities = ["read"]
 }
+
+path "pki/issue/internal"
+{
+  capabilities = ["create", "update"]
+}
