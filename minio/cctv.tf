@@ -60,8 +60,3 @@ resource "vault_generic_secret" "cctv" {
     secret_key = minio_iam_user.cctv.secret
   })
 }
-
-output "cctv-password" {
-  value     = minio_iam_user.cctv.secret
-  sensitive = "true"
-}

@@ -51,8 +51,3 @@ resource "vault_generic_secret" "loki" {
     secret_key = minio_iam_user.loki.secret
   })
 }
-
-output "loki-password" {
-  value     = minio_iam_user.loki.secret
-  sensitive = "true"
-}

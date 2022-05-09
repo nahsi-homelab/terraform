@@ -51,8 +51,3 @@ resource "vault_generic_secret" "fileshare" {
     secret_key = minio_iam_user.fileshare.secret
   })
 }
-
-output "fileshare-password" {
-  value     = minio_iam_user.fileshare.secret
-  sensitive = "true"
-}
