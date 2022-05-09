@@ -30,8 +30,8 @@ resource "consul_config_entry" "loki-compactor" {
   })
 }
 
-resource "consul_config_entry" "loki-query-scheduler" {
-  name = "loki-query-scheduler"
+resource "consul_config_entry" "loki-query-frontend" {
+  name = "loki-query-frontend"
   kind = "service-intentions"
 
   config_json = jsonencode({
