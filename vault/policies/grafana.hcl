@@ -13,7 +13,7 @@ path "secret/data/loki/basicauth/grafana"
   capabilities = ["read"]
 }
 
-path "secret/data/prometheus/basicauth/grafana"
+path "secret/data/victoria-metrics/basicauth/grafana"
 {
   capabilities = ["read"]
 }
