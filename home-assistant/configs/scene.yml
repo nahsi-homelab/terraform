@@ -40,6 +40,7 @@
 
     light.ambilight:
       state: "on"
+      brightness: 90
 
     switch.ambilight_component_led_device:
       state: "on"
