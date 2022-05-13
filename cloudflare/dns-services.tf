@@ -76,3 +76,11 @@ resource "cloudflare_record" "calibre" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "audiobookshelf" {
+  zone_id = var.cloudflare_zone_id
+  name    = "audio"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
