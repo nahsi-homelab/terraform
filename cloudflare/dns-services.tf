@@ -84,3 +84,11 @@ resource "cloudflare_record" "audiobookshelf" {
   type    = "A"
   ttl     = 1
 }
+
+resource "cloudflare_record" "polaris" {
+  zone_id = var.cloudflare_zone_id
+  name    = "polaris"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
