@@ -1,4 +1,4 @@
-path "postgres/static-creds/dendrite"
+path "postgres/creds/dendrite"
 {
   capabilities = ["read"]
 }
@@ -11,4 +11,9 @@ path "secret/data/dendrite/matrix-key"
 path "secret/data/dendrite/registration-key"
 {
   capabilities = ["read"]
+}
+
+path "pki/issue/internal"
+{
+  capabilities = ["create", "update"]
 }

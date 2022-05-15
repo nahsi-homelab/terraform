@@ -71,8 +71,23 @@ resource "cloudflare_record" "dmarc" {
   ttl     = 3600
 }
 
+resource "cloudflare_record" "matrix" {
+  zone_id = var.cloudflare_zone_id
+  name    = "nahsi.dev"
+  type    = "SRV"
+
+  data {
+    service = "_matrix"
+    proto   = "_tcp"
+    name    = "matrix"
+    port    = 443
+    target  = "matrix.nahsi.dev"
+  }
+}
+
 resource "cloudflare_record" "services" {
   for_each = toset([
+    "matrix",
     "mail",
     "minio",
     "s3",
