@@ -79,15 +79,14 @@ resource "cloudflare_record" "matrix" {
   data {
     service = "_matrix"
     proto   = "_tcp"
-    name    = "matrix"
+    name    = "@"
     port    = 443
-    target  = "matrix.nahsi.dev"
+    target  = "nahsi.dev"
   }
 }
 
 resource "cloudflare_record" "services" {
   for_each = toset([
-    "matrix",
     "mail",
     "minio",
     "s3",
