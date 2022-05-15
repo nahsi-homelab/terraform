@@ -1,3 +1,43 @@
+resource "cloudflare_record" "dashboard" {
+  zone_id = var.cloudflare_zone_id
+  name    = "nahsi.dev"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "assets" {
+  zone_id = var.cloudflare_zone_id
+  name    = "assets"
+  value   = "f003.backblazeb2.com"
+  type    = "CNAME"
+  ttl     = 1
+  proxied = true
+}
+
+resource "cloudflare_record" "resume" {
+  zone_id = var.cloudflare_zone_id
+  name    = "resume"
+  value   = "nahsi.github.io"
+  type    = "CNAME"
+}
+
+resource "cloudflare_record" "syria" {
+  zone_id = var.cloudflare_zone_id
+  name    = "syria"
+  value   = var.syria
+  type    = "A"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "asia" {
+  zone_id = var.cloudflare_zone_id
+  name    = "asia"
+  value   = var.asia
+  type    = "A"
+  ttl     = 1
+}
+
 resource "cloudflare_record" "mx" {
   zone_id  = var.cloudflare_zone_id
   name     = "nahsi.dev"
@@ -31,9 +71,22 @@ resource "cloudflare_record" "dmarc" {
   ttl     = 3600
 }
 
-resource "cloudflare_record" "mail" {
+resource "cloudflare_record" "services" {
+  for_each = toset([
+    "mail",
+    "minio",
+    "s3",
+    "jellyfin",
+    "polaris",
+    "audio",
+    "calibre",
+    "files",
+    "filerun",
+    "llpsi",
+    "transmission-taisto",
+  ])
   zone_id = var.cloudflare_zone_id
-  name    = "mail"
+  name    = each.value
   value   = var.syria
   type    = "A"
   ttl     = 1
