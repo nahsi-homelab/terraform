@@ -92,6 +92,7 @@ resource "cloudflare_record" "services" {
     "s3",
     "jellyfin",
     "polaris",
+    "navidrome",
     "audio",
     "calibre",
     "files",
