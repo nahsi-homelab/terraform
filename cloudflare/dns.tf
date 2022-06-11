@@ -100,6 +100,7 @@ resource "cloudflare_record" "services" {
     "llpsi",
     "transmission-taisto",
     "libreddit",
+    "vaultwarden",
   ])
   zone_id = var.cloudflare_zone_id
   name    = each.value
