@@ -131,7 +131,7 @@ resource "github_branch_protection" "ansible-telegraf" {
 }
 
 resource "github_repository" "ansible-node-exporter" {
-  name        = "ansible-node_exporter"
+  name        = "ansible-node-exporter"
   description = "Ansible role for node_exporter"
 
   topics = [
