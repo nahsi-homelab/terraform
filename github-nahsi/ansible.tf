@@ -129,3 +129,31 @@ resource "github_branch_protection" "ansible-telegraf" {
   enforce_admins   = true
   allows_deletions = true
 }
+
+resource "github_repository" "ansible-node-exporter" {
+  name        = "ansible-node_exporter"
+  description = "Ansible role for node_exporter"
+
+  topics = [
+    "prometheus",
+    "node-exporter",
+    "metrics",
+    "observability",
+    "ansible"
+  ]
+
+  has_issues = true
+
+  allow_merge_commit     = false
+  allow_rebase_merge     = false
+  delete_branch_on_merge = true
+  vulnerability_alerts   = true
+}
+
+resource "github_branch_protection" "ansible-node-exporter" {
+  repository_id = github_repository.ansible-node-exporter.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
