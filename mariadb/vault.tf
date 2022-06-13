@@ -31,6 +31,7 @@ resource "vault_database_secret_backend_connection" "mariadb" {
   allowed_roles = [
     "filerun",
     "exporter",
+    "snipeit",
   ]
 
   root_rotation_statements = [
