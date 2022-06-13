@@ -1,4 +1,4 @@
-path "secret/data/redis/mail/users/+"
+path "secret/data/keydb/users/+"
 {
   capabilities = ["read"]
 }

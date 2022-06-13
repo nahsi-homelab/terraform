@@ -3,12 +3,7 @@ path "mongo/creds/ducky-api"
   capabilities = ["read"]
 }
 
-path "secret/data/redis/mail/users/ducky-api"
-{
-  capabilities = ["read"]
-}
-
-path "secret/data/redis/mail/users/default"
+path "secret/data/keydb/users/default"
 {
   capabilities = ["read"]
 }

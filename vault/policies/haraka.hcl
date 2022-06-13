@@ -3,7 +3,7 @@ path "mongo/creds/haraka"
   capabilities = ["read"]
 }
 
-path "secret/data/redis/mail/users/wildduck"
+path "secret/data/keydb/users/default"
 {
   capabilities = ["read"]
 }
