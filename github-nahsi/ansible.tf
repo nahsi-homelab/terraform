@@ -157,3 +157,31 @@ resource "github_branch_protection" "ansible-node-exporter" {
   enforce_admins   = true
   allows_deletions = true
 }
+
+resource "github_repository" "ansible-promtail" {
+  name        = "ansible-promtail"
+  description = "Ansible role for promtail"
+
+  topics = [
+    "promtail",
+    "loki",
+    "logs",
+    "observability",
+    "ansible"
+  ]
+
+  has_issues = true
+
+  allow_merge_commit     = false
+  allow_rebase_merge     = false
+  delete_branch_on_merge = true
+  vulnerability_alerts   = true
+}
+
+resource "github_branch_protection" "ansible-promtail" {
+  repository_id = github_repository.ansible-promtail.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
