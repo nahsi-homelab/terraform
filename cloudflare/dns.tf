@@ -96,7 +96,6 @@ resource "cloudflare_record" "services" {
     "audio",
     "calibre",
     "files",
-    "filerun",
     "llpsi",
     "transmission-taisto",
     "libreddit",
