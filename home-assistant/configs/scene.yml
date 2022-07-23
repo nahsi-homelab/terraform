@@ -50,13 +50,13 @@
   entities:
     light.key_light_left:
       state: "on"
-      brightness: 85
-      color_temp: 275
+      brightness: 90
+      color_temp: 250
 
     light.key_light_right:
       state: "on"
       brightness: 50
-      color_temp: 145
+      color_temp: 250
 
     light.ikea_lamp:
       state: "on"
