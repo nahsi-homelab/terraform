@@ -1,3 +1,16 @@
+resource "cloudflare_record" "servers" {
+  for_each = toset([
+    "10.1.10.10",
+    "10.1.10.20",
+    "10.1.10.30",
+  ])
+
+  zone_id = var.cloudflare_zone_id
+  name    = "hashi.nahsi.dev"
+  value   = each.key
+  type    = "A"
+}
+
 resource "cloudflare_record" "dashboard" {
   zone_id = var.cloudflare_zone_id
   name    = "nahsi.dev"
