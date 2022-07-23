@@ -50,23 +50,23 @@
   entities:
     light.key_light_left:
       state: "on"
-      brightness: 100
+      brightness: 85
       color_temp: 275
 
     light.key_light_right:
       state: "on"
-      brightness: 25
+      brightness: 50
       color_temp: 145
 
     light.ikea_lamp:
       state: "on"
-      brightness: 150
+      brightness: 250
       effect: "Deepdive"
 
     light.reading_lamp:
       state: "on"
-      brightness: 255
-      effect: "Focus"
+      brightness: 250
+      effect: "Deepdive"
 
     light.ambilight:
       state: "off"
