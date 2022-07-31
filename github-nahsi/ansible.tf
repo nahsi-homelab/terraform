@@ -5,7 +5,8 @@ resource "github_repository" "ansible-consul" {
   topics = [
     "consul",
     "hashicorp",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -31,7 +32,8 @@ resource "github_repository" "ansible-nomad" {
   topics = [
     "nomad",
     "hashicorp",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -57,7 +59,8 @@ resource "github_repository" "ansible-vault" {
   topics = [
     "vault",
     "hashicorp",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -84,7 +87,8 @@ resource "github_repository" "ansible-vault-agent" {
     "vault",
     "vault-agent",
     "hashicorp",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -111,7 +115,8 @@ resource "github_repository" "ansible-telegraf" {
     "telegraf",
     "metrics",
     "observability",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -139,7 +144,8 @@ resource "github_repository" "ansible-node-exporter" {
     "node-exporter",
     "metrics",
     "observability",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -167,7 +173,8 @@ resource "github_repository" "ansible-promtail" {
     "loki",
     "logs",
     "observability",
-    "ansible"
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
@@ -193,10 +200,12 @@ resource "github_repository" "ansible-cadvisor" {
   topics = [
     "prometheus",
     "docker",
+    "cadvisor",
     "metrics",
     "observability",
     "ansible",
-    "cadvisor",
+    "ansible",
+    "gentoo",
   ]
 
   has_issues = true
