@@ -185,3 +185,32 @@ resource "github_branch_protection" "ansible-promtail" {
   enforce_admins   = true
   allows_deletions = true
 }
+
+resource "github_repository" "ansible-cadvisor" {
+  name        = "ansible-cadvisor"
+  description = "Ansible role for cadvisor"
+
+  topics = [
+    "prometheus",
+    "docker",
+    "metrics",
+    "observability",
+    "ansible",
+    "cadvisor",
+  ]
+
+  has_issues = true
+
+  allow_merge_commit     = false
+  allow_rebase_merge     = false
+  delete_branch_on_merge = true
+  vulnerability_alerts   = true
+}
+
+resource "github_branch_protection" "ansible-cadvisor" {
+  repository_id = github_repository.ansible-cadvisor.name
+
+  pattern          = "master"
+  enforce_admins   = true
+  allows_deletions = true
+}
