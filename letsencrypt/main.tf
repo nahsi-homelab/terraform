@@ -12,8 +12,9 @@ resource "acme_registration" "nahsi_dev" {
 }
 
 resource "acme_certificate" "wildcard" {
-  account_key_pem = acme_registration.nahsi_dev.account_key_pem
-  common_name     = "*.nahsi.dev"
+  account_key_pem           = acme_registration.nahsi_dev.account_key_pem
+  common_name               = "nahsi.dev"
+  subject_alternative_names = ["*.nahsi.dev"]
 
   dns_challenge {
     provider = "cloudflare"
