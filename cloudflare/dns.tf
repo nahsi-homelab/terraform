@@ -114,6 +114,7 @@ resource "cloudflare_record" "services" {
     "libreddit",
     "vaultwarden",
     "snipeit",
+    "photo",
   ])
   zone_id = var.cloudflare_zone_id
   name    = each.value
