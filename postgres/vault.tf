@@ -18,6 +18,7 @@ resource "vault_database_secret_backend_connection" "postgres" {
     "dendrite",
     "matrix_media_repo",
     "vaultwarden",
+    "*"
   ]
 
   postgresql {
