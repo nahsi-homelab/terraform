@@ -71,7 +71,7 @@ resource "cloudflare_record" "spf" {
 resource "cloudflare_record" "dkim" {
   zone_id = var.cloudflare_zone_id
   name    = "mail._domainkey.nahsi.dev"
-  value   = "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4BQi+4LvdzGbLoLYW2jrQI8+xUZLFReUbXauSx19CSv8SVHvHnHVT0Zl09FhJKuapC469zej/gVbbpLI3kM+DMSi7+3rx5ucxVYEMIt1ha0kO4JuTDuU2j7RE7f5RIVTPNseNPeF+yGelb2i2RvcQEn7/2vBgtqq7Lnp2ggoruhftXF95A9I8cnndJcrdYYXzNTAzE29QdTXZY5ft3rPt8YsCt3nkZk6/Sd0wbvBBwCOmFE3LazPUeul3uO7BG8f54POFG6bkVZfpO6H7CIgj3a5C+CBsPfs2SPo1e75LjruGskXj8OtfjxxtjZtX3k7Fk3Dyr0Eui2MbqdppDIM8QIDAQAB"
+  value   = "v=DKIM1;t=s;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsJGHN2vrzX+B6g1OdvXRAsKimjKJvxFVegXJ0MX9g4bn8SF2L/IUjgLEpzTeDfoM6Jmq9BWjhAti0QlpYm0hDD5uQ4/TjKuL2KR5XD21IoymAnNUt0HAgWw/ot9U2nqhQAL0n9TEa5RMOGl1veMjcB7nOXPYf5pd2nDkaICrSe9n4rdr/YsyP7Q8owgFtAGKHxAxs+1QEGnGDnp806+m2gz5fSVcEYAbO3qr++AiG52boPQ+psRf5e2qQPwpUUxr0kFKKTaXmooDNqeGGXnYSSqwqPfXNnhEQdWHYABGNlx441s+dWux0QivjrHI8LhqaTqsItLtMj4rZgmreFG1ywIDAQAB"
   type    = "TXT"
   ttl     = 3600
 }
