@@ -33,6 +33,7 @@ resource "vault_database_secret_backend_connection" "mariadb" {
     "exporter",
     "snipeit",
     "photoprism",
+    "wish",
   ]
 
   root_rotation_statements = [
